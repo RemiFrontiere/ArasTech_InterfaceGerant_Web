@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ArasTechInterfaceGerantWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
@@ -25,3 +26,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# ArasTech_InterfaceGerant_Web
+[Projet Licence Pro DIM]
+
+
+### Create project
+You need angular-cli 
+```sh
+  npm install -g angular-cli
+  ng new PROJECT_NAME
+```
+
+### Install dependencies - [In your 
+This command install all dependencies listed in package.json
+```sh
+  npm install
+```
+
+### Start dev server
+```sh
+  ng serve
+  
+  ( Si port déjà occupé )
+  ng serve --port[CHOIXDUPORT] 
+```
+>>>>>>> 226b40660a60176772ac6e3136fddee44a533f8b
