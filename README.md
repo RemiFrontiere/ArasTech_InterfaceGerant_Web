@@ -22,4 +22,3 @@ This command install all dependencies listed in package.json
   ( Si port déjà occupé )
   ng serve --port[CHOIXDUPORT]
 ```
->>>>>>> 226b40660a60176772ac6e3136fddee44a533f8b
