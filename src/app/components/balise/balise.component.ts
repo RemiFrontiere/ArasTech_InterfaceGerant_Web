@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'balise-component',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./balise.component.scss']
 })
 export class BaliseComponent {
+  @Input() balise: number;
 }
