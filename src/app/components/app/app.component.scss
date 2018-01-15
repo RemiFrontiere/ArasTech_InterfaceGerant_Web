@@ -1,0 +1,39 @@
+::-webkit-scrollbar {
+  border-radius: 10px;
+  background-color: #2e2e2e;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #1976d2;
+}
+
+.container{
+  height: 800px;
+  position: absolute;
+  cursor: default;
+  width: 100%;
+  left: 0;
+  top: 64px;
+  z-index: 1;
+  overflow-y: auto;
+  background-color: red;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%  !important;
+    overflow-y: none;
+
+    .titleHeader{
+      width: 100%;
+      text-align: center;
+      letter-spacing: 10px;
+      font-size: 17px;
+    }
+}
