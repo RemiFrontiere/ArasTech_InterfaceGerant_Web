@@ -11,15 +11,20 @@
 }
 
 .container{
-  height: 800px;
+  height: 100vh;
   position: absolute;
   cursor: default;
   width: 100%;
   left: 0;
-  top: 64px;
   z-index: 1;
   overflow-y: auto;
-  background-color: red;
+  background-color: #333333;
+}
+.containerNoLogged{
+  top: 0;
+}
+.containerLogged{
+  top:64px;
 }
 
 .fixed-header {
