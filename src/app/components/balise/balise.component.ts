@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Oeuvre } from '../../class/oeuvre';
 
 @Component({
   selector: 'balise-component',
@@ -6,5 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./balise.component.scss']
 })
 export class BaliseComponent {
-  @Input() balise: number;
+  @Input() oeuvre: Oeuvre;
+
+  constructor(){
+    
+  }
+
 }
