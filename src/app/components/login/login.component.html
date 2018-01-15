@@ -12,7 +12,7 @@
         <input #userIdInput class="userIdInput" matInput placeholder="Identifiant">
       </mat-form-field>
       <mat-form-field class="password">
-        <input #password type="password" matInput placeholder="Mot de passe">
+        <input #password type="password" (keyup.enter)="connection(userIdInput.value, password.value)" matInput placeholder="Mot de passe">
       </mat-form-field>
       <div class="loginButton">
         <button mat-raised-button (click)="connection(userIdInput.value, password.value)">Se connecter</button>
@@ -20,8 +20,3 @@
     </mat-card>
   </div>
 </div>
-<<<<<<< HEAD
-<h1>LOGIN</h1>
-gdmlf
-=======
->>>>>>> 7d9b2bfc8c68c20f745146ab36624686aaed69fb
