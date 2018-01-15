@@ -36,10 +36,40 @@
     overflow-y: none;
 
     .titleHeader{
-      width: 100%;
       text-align: center;
-      letter-spacing: 10px;
-      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 25px;
+      margin-right: 35px;
+    }
+
+    .logoAras{
+      right: 5%;
+      position: absolute;
+    }
+
+    .btEtablissement{
+      background-color: #F2C94C;
+      color: black;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .btGroupes{
+      background-color: #2D9CDB;
+      color: black;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .btBalises{
+      background-color: #2D9CDB;
+      color: black;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-right: 10px;
     }
 }
 

@@ -2,11 +2,14 @@
     <mat-toolbar *ngIf="isLogged" color="primary" class="fixed-header">
       <mat-toolbar-row>
         <div class="titleHeader">
-          <span>Aras Tech</span>
+          <span>AR o'Notes</span>
         </div>
         <nav>
-          <a routerLink="/balises" routerLinkActive="active">BALISES</a>
+          <button class="btEtablissement" mat-raised-button>Mon etablissement</button>
+          <a routerLink="/balises" routerLinkActive="active"><button class="btBalises" mat-raised-button>Mes balises</button></a>
+          <button class="btGroupes" mat-raised-button>Mes groupes</button>
         </nav>
+        <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
       </mat-toolbar-row>
     </mat-toolbar>
     <div class="container" [ngClass]="{containerLogged: isLogged, containerNoLogged: !isLogged}">
