@@ -1,1 +1,18 @@
-<h1>{{ oeuvre.Nom }}</h1>
+<mat-card class="oeuvreCard">
+  <h2>Balise {{ oeuvre.Id }}</h2>
+  <div class="groupeCard">
+    Groupe :
+    <p class="groupeName">
+      {{ oeuvre.Groupe }}
+    </p>
+  </div>
+  <div class="textCard">
+    Texte :
+    <h2>{{ oeuvre.Titre }}</h2>
+    <p class="textContent">
+
+      <i>{{ oeuvre.SousTitre }}</i><br/>
+      <span>{{ oeuvre.Description }}</span>
+    </p>
+  </div>
+</mat-card>

@@ -13,14 +13,8 @@ export class BalisesComponent {
 
   constructor() {
     this.balises = [];
-    this.balises.push(new Oeuvre("ID","NOM","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","rgedg","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","NzrerOM","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","NOfdM","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","NOfdsfsdM","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","fsdv","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","rzrz","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","bvc","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
-    this.balises.push(new Oeuvre("ID","re","GROUPE","TITRE","SOUS-TITRE","DESCRIPTION","MEDIA"));
- }
+    this.balises.push(new Oeuvre("bfez15dsf","Salle des statues","Supplice d'Andromède","Statue en grès, 1500 av. J.C. Artiste inconnu","DESCRIPTION","MEDIA"));
+    this.balises.push(new Oeuvre("fsd51fds5","Salle des statues","Thésée et le Minotaure","Statue en argile, 69 av. J.C. Epiphore","DESCRIPTION","MEDIA"));
+    this.balises.push(new Oeuvre("fds11fds2","Salle des peintures","Charme d'Era","Huile sur toile, 1715 Pascal Mongo","DESCRIPTION","MEDIA"));
+  }
 }

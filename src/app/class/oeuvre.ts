@@ -1,7 +1,6 @@
 export class Oeuvre{
   constructor(
     private _id : string,
-    private _nom : string,
     private _groupe : string,
     private _titre : string,
     private _sousTitre : string,
@@ -11,10 +10,6 @@ export class Oeuvre{
 
   get Id(){
     return this._id;
-  }
-
-  get Nom(){
-    return this._nom;
   }
 
   get Groupe(){
@@ -35,10 +30,6 @@ export class Oeuvre{
 
   get Media(){
     return this._media;
-  }
-
-  set Nom(value: string){
-    this._nom = value;
   }
 
   set Groupe(value: string){
