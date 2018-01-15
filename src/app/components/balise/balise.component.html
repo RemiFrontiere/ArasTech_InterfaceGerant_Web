@@ -1,17 +1,15 @@
 <mat-card class="oeuvreCard">
-  <h2>Balise {{ oeuvre.Id }}</h2>
+  <div class="topOeuvre">
+    <h3>Balise {{ oeuvre.Id }}</h3>
+    <button mat-raised-button class="butOeuvre">Modifier</button>
+  </div>
   <div class="groupeCard">
-    Groupe :
-    <p class="groupeName">
-      {{ oeuvre.Groupe }}
-    </p>
+    <b>Groupe :</b> {{ oeuvre.Groupe }}
   </div>
   <div class="textCard">
-    Texte :
-    <h2>{{ oeuvre.Titre }}</h2>
+    <div class="textTitle"><b>{{ oeuvre.Titre }}</b></div>
     <p class="textContent">
-
-      <i>{{ oeuvre.SousTitre }}</i><br/>
+      <i>{{ oeuvre.SousTitre }}</i><br/><br/>
       <span>{{ oeuvre.Description }}</span>
     </p>
   </div>
