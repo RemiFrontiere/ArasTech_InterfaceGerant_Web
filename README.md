@@ -17,8 +17,18 @@ This command install all dependencies listed in package.json
 
 ### Start dev server
 ```sh
-  ng serve
+  ng serve / npm start
 
   ( Si port déjà occupé )
   ng serve --port[CHOIXDUPORT]
+```
+
+### Build
+```sh
+  ng build / npm run build
+```
+
+### Firebase
+```sh
+firebase deploy
 ```
