@@ -12,10 +12,10 @@
 
     .logoAras{
       height: 100px;
-    right: 10%;
-    position: absolute;
+      right: 10%;
+      position: absolute;
     }
-    
+
     h1{
       font-size: 40px;
     }
@@ -32,10 +32,23 @@
       color: white;
       width: 30%;
       border-radius: 25px;
-      height: 200px;
+      height: 250px;
       display: inline-grid;
       align-items: center;
       justify-content: center;
+
+      .loginButton{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        
+        button{
+          background-color: #b3b3b3;
+          color: black;
+          font-weight: bold;
+          width: 50%;
+        }
+      }
 
       .userId{
         color: white;

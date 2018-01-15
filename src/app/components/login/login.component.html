@@ -9,11 +9,14 @@
         <h2>Accédez à votre espace</h2>
       </div>
       <mat-form-field class="userId">
-        <input class="userIdInput" matInput placeholder="Identifiant">
+        <input #userIdInput class="userIdInput" matInput placeholder="Identifiant">
       </mat-form-field>
       <mat-form-field class="password">
-        <input matInput placeholder="Mot de passe">
+        <input #password type="password" matInput placeholder="Mot de passe">
       </mat-form-field>
+      <div class="loginButton">
+        <button mat-raised-button (click)="connection(userIdInput.value, password.value)">Se connecter</button>
+      </div>
     </mat-card>
   </div>
 </div>

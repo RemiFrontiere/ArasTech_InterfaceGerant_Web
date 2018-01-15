@@ -1,14 +1,18 @@
-  <mat-toolbar *ngIf="isLogged" color="primary" class="fixed-header">
-  <mat-toolbar-row>
-    <div class="titleHeader">
-      <span>Aras Tech</span>
+  <div class="isLoggedDiv">
+    <mat-toolbar *ngIf="isLogged" color="primary" class="fixed-header">
+      <mat-toolbar-row>
+        <div class="titleHeader">
+          <span>Aras Tech</span>
+        </div>
+        <nav>
+          <a routerLink="/balises" routerLinkActive="active">BALISES</a>
+        </nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="container" [ngClass]="{containerLogged: isLogged, containerNoLogged: !isLogged}">
+      <router-outlet></router-outlet>
+      <div *ngIf="!isLogged" class="isNotLoggedDiv">
+        <login-component *ngIf="!isLogged" (isLogged)="connect($event)"></login-component>
+      </div>
     </div>
-    <nav>
-      <a routerLink="/balises" routerLinkActive="active">BALISES</a>
-      <a routerLink="/login" routerLinkActive="active">LOGIN</a>
-    </nav>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="container" [ngClass]="{containerLogged: isLogged, containerNoLogged: !isLogged}">
-  <router-outlet></router-outlet>
-</div>
+  </div>

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public isLogged : boolean = false;
+
+  connect(isLogged:boolean){
+    this.isLogged = isLogged;
+  }
 }
