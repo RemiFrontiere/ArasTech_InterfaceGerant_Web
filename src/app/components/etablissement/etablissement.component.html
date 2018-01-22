@@ -1,1 +1,16 @@
-<!--component html goes here -->
+<div class="myEtab">
+  <div class="nameEtab">
+    <p>Nom de l'établissement : </p>
+    <mat-form-field class="nameEtabForm">
+      <input #userIdInput class="nameEtabFormInput" matInput placeholder="Nom de votre établissement">
+    </mat-form-field>
+  </div>
+  <div class="logoEtab">
+    <p>Logo : </p>
+    <!-- <img *ngIf="globals.EtablissementLogo != ''" src="globals.EtablissementLogo" alt=""> -->
+    <div class="selectFile">
+      <label for="file">Parcourir</label>
+      <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@
           </a>
         </div>
         <nav>
-          <a routerLink="/etablissement" routerLinkActive="active" (click)="changeToolbarCurrentColor('etablissement')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'etab', btToolbarCurrent: globals.CurrentScreen == 'etab'}" mat-raised-button>Mon etablissement</button></a>
+          <a routerLink="/etablissement" routerLinkActive="active" (click)="changeToolbarCurrentColor('etablissement')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'etablissement', btToolbarCurrent: globals.CurrentScreen == 'etablissement'}" mat-raised-button>Mon etablissement</button></a>
           <a routerLink="/balises" routerLinkActive="active" (click)="changeToolbarCurrentColor('balises')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'balises', btToolbarCurrent: globals.CurrentScreen == 'balises'}" mat-raised-button>Mes balises</button></a>
           <a routerLink="/groupes" routerLinkActive="active" (click)="changeToolbarCurrentColor('groupes')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'groupes', btToolbarCurrent: globals.CurrentScreen == 'groupes'}" mat-raised-button>Mes groupes</button></a>
           <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')"><button class="btToolbar" mat-raised-button >Déconnection</button></a>
