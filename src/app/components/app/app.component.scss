@@ -54,25 +54,17 @@
       right: 5%;
       position: absolute;
     }
-
-    .btEtablissement{
-      background-color: #2D9CDB;//#F2C94C;
+    .btToolbar{
+      background-color: #2D9CDB;
       color: black;
+      transition: 1s ease-in-out;
       font-weight: bold;
       margin-left: 10px;
       margin-right: 10px;
     }
-
-    .btGroupes{
-      background-color: #2D9CDB;
-      color: black;
-      font-weight: bold;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-    .btBalises{
-      background-color: #2D9CDB;
+    .btToolbarCurrent{
+      background-color: #82c8ef;
+      transition: 1s ease-in-out;
       color: black;
       font-weight: bold;
       margin-left: 10px;

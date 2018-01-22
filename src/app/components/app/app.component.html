@@ -2,14 +2,15 @@
     <mat-toolbar *ngIf="globals.isLogged" color="primary" class="fixed-header">
       <mat-toolbar-row>
         <div class="titleHeader">
-          <a routerLink="app" routerLinkActive="active">
+          <a routerLink="app" routerLinkActive="active" (click)="changeToolbarCurrentColor('app')">
             <span class="titleSpan">AR o'Notes</span>
           </a>
         </div>
         <nav>
-          <button class="btEtablissement" mat-raised-button>Mon etablissement</button>
-          <a routerLink="/balises" routerLinkActive="active"><button class="btBalises" mat-raised-button>Mes balises</button></a>
-          <button class="btGroupes" mat-raised-button>Mes groupes</button>
+          <a routerLink="/etablissement" routerLinkActive="active" (click)="changeToolbarCurrentColor('etablissement')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'etab', btToolbarCurrent: globals.CurrentScreen == 'etab'}" mat-raised-button>Mon etablissement</button></a>
+          <a routerLink="/balises" routerLinkActive="active" (click)="changeToolbarCurrentColor('balises')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'balises', btToolbarCurrent: globals.CurrentScreen == 'balises'}" mat-raised-button>Mes balises</button></a>
+          <a routerLink="/groupes" routerLinkActive="active" (click)="changeToolbarCurrentColor('groupes')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'groupes', btToolbarCurrent: globals.CurrentScreen == 'groupes'}" mat-raised-button>Mes groupes</button></a>
+          <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')"><button class="btToolbar" mat-raised-button >Déconnection</button></a>
         </nav>
         <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
       </mat-toolbar-row>

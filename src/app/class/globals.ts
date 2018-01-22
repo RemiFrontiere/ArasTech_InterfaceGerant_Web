@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 export class Globals {
 
   private _isLogged:boolean = false;
+  private _currentScreen:string = "app";
 
   constructor(){
 
@@ -16,5 +17,12 @@ export class Globals {
   }
   set isLogged(value: boolean){
     this._isLogged = value
+  }
+
+  get CurrentScreen(){
+    return this._currentScreen;
+  }
+  set CurrentScreen(value: string){
+    this._currentScreen = value
   }
 }

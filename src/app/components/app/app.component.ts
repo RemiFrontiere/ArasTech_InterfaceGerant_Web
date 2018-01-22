@@ -9,19 +9,35 @@ import { Globals } from '../../class/globals';
 export class AppComponent {
 
   constructor(private globals: Globals){
-    console.log("IVI");
   }
 
   ngOnInit(){
   }
 
   connect(isLogged:boolean){
-    console.log("LogAvantGLOBAL:", this.globals.isLogged);
+    // console.log("LogAvantGLOBAL:", this.globals.isLogged);
     this.globals.isLogged = isLogged;
-    console.log("LogAprèsGLOBAL:",this.globals.isLogged);
+    // console.log("LogAprèsGLOBAL:",this.globals.isLogged);
   }
 
   ngOnChanges(){
-  console.log("CHANGE:", this.globals.isLogged);
+  }
+
+  changeToolbarCurrentColor(value:string){
+    this.globals.CurrentScreen = "app";
+
+    switch(value) {
+      case 'app':
+        this.globals.CurrentScreen = value;
+        break;
+      case 'balises':
+        this.globals.CurrentScreen = value;
+        break;
+      case 'groupes':
+        this.globals.CurrentScreen = value;
+        break;
+      case 'etablissement':
+        this.globals.CurrentScreen = value;
+        break;
   }
 }

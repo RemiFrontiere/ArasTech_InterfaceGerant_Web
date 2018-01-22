@@ -4,8 +4,7 @@ import { Globals } from '../../class/globals';
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [ Globals ]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
  @Output() isLogged: EventEmitter<boolean> = new EventEmitter();
@@ -20,8 +19,6 @@ export class LoginComponent {
   }
 
   ngOnInit(){
-    console.log("INITLOGIN:", this.globals.isLogged);
-    //this.isLogged = false;
   }
 
 }
