@@ -12,6 +12,9 @@ import { BaliseComponent } from './components/balise/balise.component';
 import { GroupesComponent } from './components/groupes/groupes.component';
 import { GroupeComponent } from './components/groupe/groupe.component';
 
+// Les variables GLOBALS
+import { Globals } from './class/globals';
+
 // Materials - Dans une classe pour éviter d'avoir à tous les importer dans le NgModule de notre app
 import {
   MatButtonModule,
@@ -116,11 +119,11 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     MaterialModule
   ],
-  providers: [],
+  providers: [Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

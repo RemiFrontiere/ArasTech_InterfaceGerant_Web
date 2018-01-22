@@ -1,8 +1,10 @@
   <div class="isLoggedDiv">
-    <mat-toolbar *ngIf="isLogged" color="primary" class="fixed-header">
+    <mat-toolbar *ngIf="globals.isLogged" color="primary" class="fixed-header">
       <mat-toolbar-row>
         <div class="titleHeader">
-          <span>AR o'Notes</span>
+          <a routerLink="app" routerLinkActive="active">
+            <span class="titleSpan">AR o'Notes</span>
+          </a>
         </div>
         <nav>
           <button class="btEtablissement" mat-raised-button>Mon etablissement</button>
@@ -12,10 +14,10 @@
         <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="container" [ngClass]="{containerLogged: isLogged, containerNoLogged: !isLogged}">
+    <div class="container" [ngClass]="{containerLogged: globals.isLogged, containerNoLogged: !globals.isLogged}">
       <router-outlet></router-outlet>
-      <div *ngIf="!isLogged" class="isNotLoggedDiv">
-        <login-component *ngIf="!isLogged" (isLogged)="connect($event)"></login-component>
+      <div *ngIf="!globals.isLogged" class="isNotLoggedDiv">
+        <login-component *ngIf="!globals.isLogged" (isLogged)="connect($event)"></login-component>
       </div>
     </div>
   </div>

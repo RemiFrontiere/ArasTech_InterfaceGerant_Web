@@ -41,6 +41,13 @@
       letter-spacing: 2px;
       font-size: 25px;
       margin-right: 35px;
+
+      a{
+        text-decoration: none;
+      }
+      .titleSpan{
+        color: white;
+      }
     }
 
     .logoAras{
@@ -49,7 +56,7 @@
     }
 
     .btEtablissement{
-      background-color: #F2C94C;
+      background-color: #2D9CDB;//#F2C94C;
       color: black;
       font-weight: bold;
       margin-left: 10px;
@@ -75,14 +82,18 @@
 
 
 .isNotLoggedDiv{
-  top: 0;
-    left: 0;
     position: absolute;
+    left: 0;
+    top: 0;
     height: 100%;
     width: 100%;
+
+    p{
+
+    }
 }
 .isLoggedDiv{
-  top: 0;
+    top: 0;
     left: 0;
     position: absolute;
     height: 100%;

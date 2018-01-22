@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { Globals } from '../../class/globals';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public isLogged : boolean = false;
+
+  constructor(private globals: Globals){
+    console.log("IVI");
+  }
+
+  ngOnInit(){
+  }
 
   connect(isLogged:boolean){
-    this.isLogged = isLogged;
+    console.log("LogAvantGLOBAL:", this.globals.isLogged);
+    this.globals.isLogged = isLogged;
+    console.log("LogAprèsGLOBAL:",this.globals.isLogged);
+  }
+
+  ngOnChanges(){
+  console.log("CHANGE:", this.globals.isLogged);
   }
 }
