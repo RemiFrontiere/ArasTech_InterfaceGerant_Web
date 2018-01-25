@@ -7,7 +7,7 @@ export class Globals {
   private _isLogged:boolean = true;
   private _currentScreen:string = "app";
   private _etablissementName:string = "";
-  private _etablissementLogo:file = "";
+  // private _etablissementLogo:file = "";
 
   constructor(){
 
@@ -35,10 +35,10 @@ export class Globals {
     this._etablissementName = value
   }
 
-  get EtablissementLogo(){
-    return this._etablissementLogo;
-  }
-  set EtablissementLogo(value: file){
-    this._etablissementLogo = value
-  }
+  // get EtablissementLogo(){
+  //   return this._etablissementLogo;
+  // }
+  // set EtablissementLogo(value: file){
+  //   this._etablissementLogo = value
+  // }
 }

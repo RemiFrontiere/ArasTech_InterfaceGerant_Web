@@ -16,6 +16,6 @@ export class EtablissementComponent {
   }
 
   handleFileInput(files: FileList) {
-    this.globals.EtablissementLogo = files.item(0);
+    // this.globals.EtablissementLogo = files.item(0);
 }
 }

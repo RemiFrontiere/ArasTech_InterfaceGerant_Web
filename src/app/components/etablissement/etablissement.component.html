@@ -9,8 +9,12 @@
     <p>Logo : </p>
     <!-- <img *ngIf="globals.EtablissementLogo != ''" src="globals.EtablissementLogo" alt=""> -->
     <div class="selectFile">
-      <label for="file">Parcourir</label>
-      <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+      <div class="File">
+        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+      </div>
+      <div class="btnFile">
+        <button mat-raised-button>Envoyer</button>
+      </div>
     </div>
   </div>
 </div>

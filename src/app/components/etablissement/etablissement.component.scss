@@ -32,9 +32,19 @@
     input{
     }
     .selectFile{
-      display: inline-grid;
+      display: flex;
       justify-content: center;
       align-items: center;
+
+      .File{
+        display: inline-grid;
+        width: 300px;
+      }
+
+      button{
+        color: black;
+        font-weight: bold;
+      }
     }
   }
 }
