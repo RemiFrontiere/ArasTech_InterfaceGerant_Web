@@ -1,7 +1,6 @@
 # ArasTech_InterfaceGerant_Web
 [Projet Licence Pro DIM]
 
-
 ### Create project
 You need angular-cli
 ```sh
@@ -12,6 +11,10 @@ You need angular-cli
 ### Install dependencies - [In your
 This command install all dependencies listed in package.json
 ```sh
+  npm install -g @angular/cli
+  npm install -g firebase-tools
+  npm install -g firebase
+  
   npm install
 ```
 
