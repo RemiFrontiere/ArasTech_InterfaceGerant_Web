@@ -1,6 +1,9 @@
 # ArasTech_InterfaceGerant_Web
 [Projet Licence Pro DIM]
 
+
+npm -g list --depth=0
+
 ### Create project
 You need angular-cli
 ```sh
