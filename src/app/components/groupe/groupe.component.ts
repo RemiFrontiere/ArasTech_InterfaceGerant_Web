@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Groupe } from '../../class/groupe';
+import { Globals } from '../../class/globals';
 
 @Component({
   selector: 'groupe-component',
@@ -6,4 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./groupe.component.scss']
 })
 export class GroupeComponent {
+  @Input() groupe: Groupe;
+  @Output() openModal: EventEmitter<any> = new EventEmitter();
+
+  constructor(private globals: Globals) {
+
+  }
+
+  public openModifModal():void{
+    this.openModal.emit(this.groupe);
+    this.globals.modalIsDisplay = true;
+    document.body.classList.add('modalIsDisplay');
+  }
+
 }

@@ -1,0 +1,52 @@
+.liLabel01{
+  width: 30%;
+  left: 0;
+  text-align: left;
+}
+.liLabel02{
+  width: 50%;
+  text-align: left;
+}
+.liLabel03{
+  width: 10%;
+}
+
+
+button.btn.btn-primary {
+  margin: 2px;
+}
+
+
+
+.modal{
+  overflow: auto;
+  width: 100%;
+  z-index: 2000;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+
+  .modal-dialog{
+    width: 100%;
+    height: 100%;
+    padding: 1.75rem;
+    margin: inherit;
+
+    .modal-header{
+      background-color: #3e50b5;
+      color: white;
+      h5 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .close{
+      color: white;
+      text-shadow: 0 1px 0 #fff;
+    }
+  }
+}

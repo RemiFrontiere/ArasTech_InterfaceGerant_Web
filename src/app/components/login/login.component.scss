@@ -1,64 +1,72 @@
-.loginContent{
-  height: 100vh;
-  width: 100%;
-  background-color: #333333;
-
-  .top{
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
     color: white;
-
-    .logoAras{
-      height: 100px;
-      right: 10%;
-      position: absolute;
-    }
-
-    h1{
-      font-size: 40px;
-    }
-  }
-
-  .space{
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .spaceCard{
-      background-color: #1F4880;
-      color: white;
-      width: 30%;
-      border-radius: 25px;
-      height: 250px;
-      display: inline-grid;
-      align-items: center;
-      justify-content: center;
-
-      .loginButton{
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        
-        button{
-          background-color: #b3b3b3;
-          color: black;
-          font-weight: bold;
-          width: 50%;
-        }
-      }
-
-      .userId{
-        color: white;
-      }
-    }
-  }
-
-  }
-
-
-.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
-  color: red;
 }
+
+// .loginContent{
+//   height: 100vh;
+//   width: 100%;
+//   background-color: #333333;
+//
+//   .top{
+//     height: 30%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: white;
+//
+//     .logoAras{
+//       height: 100px;
+//       right: 10%;
+//       position: absolute;
+//     }
+//
+//     h1{
+//       font-size: 40px;
+//     }
+//   }
+//
+//   .space{
+//     height: 70%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//
+//     .spaceCard{
+//       background-color: #1F4880;
+//       color: white;
+//       width: 30%;
+//       border-radius: 25px;
+//       height: 250px;
+//       display: inline-grid;
+//       align-items: center;
+//       justify-content: center;
+//
+//       .loginButton{
+//         display: flex;
+//         text-align: center;
+//         justify-content: center;
+//
+//         button{
+//           background-color: #b3b3b3;
+//           color: black;
+//           font-weight: bold;
+//           width: 50%;
+//         }
+//       }
+//
+//       .userId{
+//         color: white;
+//       }
+//     }
+//   }
+//
+//   }
+//
+//
+// .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
+//   color: red;
+// }

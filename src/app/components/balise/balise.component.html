@@ -1,4 +1,20 @@
-<mat-card class="oeuvreCard">
+<div class="card mb-4 box-shadow size">
+  <div class="card-header bg-blue">
+    <h4 class="my-0 font-weight-normal">Balise {{ oeuvre.Id }}</h4>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title pricing-card-title oeuvreTitle">{{ oeuvre.Titre }}</h1>
+    <ul class="list-unstyled mt-3 mb-4">
+      <li class="oeuvreGroup">Groupe :<small class="text-muted"> {{ oeuvre.Groupe}}</small></li>
+      <li class="oeuvreSousTile">{{ oeuvre.SousTitre }}</li>
+      <li class="oeuvreDesc">{{ oeuvre.Description }}</li>
+    </ul>
+    <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="openModifModal()">Modifier</button>
+  </div>
+</div>
+
+
+<!-- <mat-card class="oeuvreCard">
   <div class="topOeuvre">
     <h3>Balise {{ oeuvre.Id }}</h3>
     <button mat-raised-button class="butOeuvre">Modifier</button>
@@ -7,10 +23,10 @@
     <b>Groupe :</b> {{ oeuvre.Groupe }}
   </div>
   <div class="textCard">
-    <div class="textTitle"><b>{{ oeuvre.Titre }}</b></div>
+    <div class="textTitle"><b></b></div>
     <p class="textContent">
-      <i>{{ oeuvre.SousTitre }}</i><br/><br/>
-      <span>{{ oeuvre.Description }}</span>
+      <i></i><br/><br/>
+      <span></span>
     </p>
   </div>
-</mat-card>
+</mat-card> -->

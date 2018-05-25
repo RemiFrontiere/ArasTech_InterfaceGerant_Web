@@ -11,6 +11,7 @@ import { Globals } from '../../class/globals';
 export class BalisesComponent {
 
   public balises : Array<Oeuvre>;
+  public oneModalIsOpen:Oeuvre = null;
 
   constructor(private globals: Globals) {
     this.balises = [];
@@ -25,5 +26,15 @@ export class BalisesComponent {
   }
 
   ngOnDestroy(){
+  }
+
+  public openModifModal(oeuvre: Oeuvre):void{
+    this.oneModalIsOpen = oeuvre;
+    console.log(oeuvre + "OPEN")
+  }
+
+  public removeModal():void{
+    document.body.classList.remove('modalIsDisplay');
+    this.oneModalIsOpen = null;
   }
 }

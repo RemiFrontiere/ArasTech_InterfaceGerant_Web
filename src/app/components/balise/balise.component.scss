@@ -1,14 +1,24 @@
 // component css goes here
-.oeuvreCard {
-  width : 300px;
-  background: grey;
-  margin: 20px;
-  height: 350px;
-  background-color: #2D9CDB;
-  padding-top: 5px;
-  padding : 5px;
+// .oeuvreCard {
+//   width: 350px;
+// }
 
+.size{
+  // width: 300px;
+  max-width: 350px;
+  height: 500px;
 }
+.oeuvreTitle{
+  height: 100px;
+}
+.oeuvreSousTile{
+  height: 55px;
+}
+.oeuvreDesc{
+  overflow: auto;
+  height: 150px;
+}
+
 
 .textContent {
   overflow-y: auto;

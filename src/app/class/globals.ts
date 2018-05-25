@@ -7,6 +7,7 @@ export class Globals {
   private _isLogged:boolean = true;
   private _currentScreen:string = "app";
   private _etablissementName:string = "";
+  private _modalIsDisplay:boolean = false;
   // private _etablissementLogo:file = "";
 
   constructor(){
@@ -17,7 +18,15 @@ export class Globals {
   get isLogged(){
     return this._isLogged;
   }
+  set modalIsDisplay(value: boolean){
+    this._modalIsDisplay = value
+  }
+  get modalIsDisplay(){
+    console.log("get")
+    return this._modalIsDisplay;
+  }
   set isLogged(value: boolean){
+    console.log("set")
     this._isLogged = value
   }
 

@@ -1,4 +1,20 @@
-<div class="loginContent">
+<form class="form-signin">
+  <img class="mb-4" src="../../../assets/logoArasBlanc.png" alt="" width="100px">
+  <h1 class="h3 mb-3 font-weight-normal">AR O'Notes</h1>
+  <label for="userIdInput" class="sr-only">Identifiant</label>
+  <input #userIdInput type="text" id="userIdInput" class="form-control" placeholder="Identifiant" required="" autofocus="">
+  <label for="password" class="sr-only">Mot de passe</label>
+  <input #password type="password" (keyup.enter)="connection(userIdInput.value, password.value)" class="form-control" placeholder="Mot de passe" required="">
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Se souvenir de moi
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="connection(userIdInput.value, password.value)">Se connecter</button>
+  <p class="mt-5 mb-3 text-muted">© Aras Tech</p>
+</form>
+
+<!-- <div class="loginContent">
   <div class="top">
     <h1>AR o'Notes</h1>
     <img class="logoAras" src="../../../assets/logoArasBlanc.png" alt="">
@@ -19,4 +35,4 @@
       </div>
     </mat-card>
   </div>
-</div>
+</div> -->

@@ -1,50 +1,7 @@
-.myEtab{
+.container{
   color: white;
+}
 
-  p, label{
-    font-weight: bold;
-    font-size: 20px;
-    width: 40vw;
-  }
-
-  .nameEtab {
-    width: 100vw;
-    margin: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .nameEtabForm{
-      width: 40vw;
-      .nameEtabFormInput{
-        font-size: 22px;
-      }
-    }
-  }
-
-  .logoEtab{
-    width: 100vw;
-    margin: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    input{
-    }
-    .selectFile{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .File{
-        display: inline-grid;
-        width: 300px;
-      }
-
-      button{
-        color: black;
-        font-weight: bold;
-      }
-    }
-  }
+.formEtab{
+  padding-top: 85px;
 }

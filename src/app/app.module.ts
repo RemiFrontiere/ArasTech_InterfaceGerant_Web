@@ -91,6 +91,7 @@ export class MaterialModule {}
 
 const appRoutes: Routes = [
   { path: 'balises', component: BalisesComponent },
+  { path: 'groupes', component: GroupesComponent },
   { path: 'etablissement', component: EtablissementComponent },
   {
     path: 'app',

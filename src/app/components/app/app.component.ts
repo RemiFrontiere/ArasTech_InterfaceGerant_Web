@@ -8,7 +8,7 @@ import { Globals } from '../../class/globals';
 })
 export class AppComponent {
 
-  constructor(private globals: Globals){
+  constructor(public globals: Globals){
   }
 
   ngOnInit(){

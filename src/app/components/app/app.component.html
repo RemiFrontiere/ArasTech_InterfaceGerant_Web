@@ -1,24 +1,27 @@
-  <div class="isLoggedDiv">
-    <mat-toolbar *ngIf="globals.isLogged" color="primary" class="fixed-header">
-      <mat-toolbar-row>
-        <div class="titleHeader">
-          <a routerLink="app" routerLinkActive="active" (click)="changeToolbarCurrentColor('app')">
-            <span class="titleSpan">AR o'Notes</span>
-          </a>
-        </div>
-        <nav>
-          <a routerLink="/etablissement" routerLinkActive="active" (click)="changeToolbarCurrentColor('etablissement')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'etablissement', btToolbarCurrent: globals.CurrentScreen == 'etablissement'}" mat-raised-button>Mon etablissement</button></a>
-          <a routerLink="/balises" routerLinkActive="active" (click)="changeToolbarCurrentColor('balises')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'balises', btToolbarCurrent: globals.CurrentScreen == 'balises'}" mat-raised-button>Mes balises</button></a>
-          <a routerLink="/groupes" routerLinkActive="active" (click)="changeToolbarCurrentColor('groupes')"><button [ngClass]="{btToolbar: globals.CurrentScreen != 'groupes', btToolbarCurrent: globals.CurrentScreen == 'groupes'}" mat-raised-button>Mes groupes</button></a>
-          <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')"><button class="btToolbar" mat-raised-button >Déconnection</button></a>
-        </nav>
-        <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <div class="container" [ngClass]="{containerLogged: globals.isLogged, containerNoLogged: !globals.isLogged}">
-      <router-outlet></router-outlet>
-      <div *ngIf="!globals.isLogged" class="isNotLoggedDiv">
-        <login-component *ngIf="!globals.isLogged" (isLogged)="connect($event)"></login-component>
-      </div>
-    </div>
+<nav *ngIf="globals.isLogged" class="navbar navbar-expand-md navbar-dark fixed-top bg-blue">
+  <a class="navbar-brand" routerLink="app" routerLinkActive="active" (click)="changeToolbarCurrentColor('app')">
+    <span class="titleSpan">AR o'Notes</span>
+  </a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/etablissement" routerLinkActive="active" (click)="changeToolbarCurrentColor('etablissement')" class="btn btn-primary bg-button-blue" href="#">Mon établissement <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/balises" routerLinkActive="active" (click)="changeToolbarCurrentColor('balises')" class="btn btn-primary bg-button-blue" href="#">Mes balises</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/groupes" routerLinkActive="active" (click)="changeToolbarCurrentColor('groupes')" class="btn btn-primary bg-button-blue" href="#">Mes groupes</a>
+      </li>
+    </ul>
+    <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')" class="btn btn-primary bg-button-blue" href="#">Déconnection</a>
+    <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
   </div>
+</nav>
+<login-component *ngIf="!globals.isLogged" (isLogged)="connect($event)"></login-component>
+<main *ngIf="globals.isLogged" class="container bg-dark isLoggedDiv">
+  <router-outlet></router-outlet>
+</main>
