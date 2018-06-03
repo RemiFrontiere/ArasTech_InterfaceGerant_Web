@@ -1,20 +1,33 @@
 // component css goes here
-// .oeuvreCard {
+// .BaliseCard {
 //   width: 350px;
 // }
 
+.add{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i{
+        font-size: 100px;
+      }
+}
+.card{
+    width: 300px;
+}
 .size{
   // width: 300px;
   max-width: 350px;
   height: 500px;
 }
-.oeuvreTitle{
+.BaliseTitle{
   height: 100px;
 }
-.oeuvreSousTile{
+.BaliseSousTile{
   height: 55px;
 }
-.oeuvreDesc{
+.BaliseDesc{
   overflow: auto;
   height: 150px;
 }
@@ -39,11 +52,11 @@
 .textCard {
 }
 
-.topOeuvre {
+.topBalise {
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  .butOeuvre{
+  .butBalise{
     background-color: #1F4880;
     height: 40px;
     color: white;

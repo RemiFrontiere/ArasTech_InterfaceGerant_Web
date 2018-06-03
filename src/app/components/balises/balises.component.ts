@@ -1,5 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Oeuvre } from '../../class/oeuvre';
+import { Component,Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Media } from '../../class/Media';
+import { Groupe } from '../../class/Groupe';
+import { Quiz } from '../../class/Quiz';
+import { Balise } from '../../class/Balise';
+
 import { BaliseComponent } from '../balise/balise.component';
 import { Globals } from '../../class/globals';
 
@@ -8,17 +12,19 @@ import { Globals } from '../../class/globals';
   templateUrl: './balises.component.html',
   styleUrls: ['./balises.component.scss']
 })
+
+@Injectable()
 export class BalisesComponent {
 
-  public balises : Array<Oeuvre>;
-  public oneModalIsOpen:Oeuvre = null;
+  public oneModalIsOpen:Balise = null;
+  public oneModalNewBaliseIsOpen:boolean = false;
 
-  constructor(private globals: Globals) {
-    this.balises = [];
-    this.balises.push(new Oeuvre("bfez15dsf","Salle des statues","Supplice d'Andromède","Statue en grès, 1500 av. J.C. Artiste inconnu",
-    "Dans la mythologie grecque, Poséidon, Dieu de la mer, jaloux que cette femme soit plus belle que ses filles, la fera attacher à un rocher pour qu’elle soit dévorée par un monstre marin. Elle sera sauvée par le héros grecque Persée.","MEDIA"));
-    this.balises.push(new Oeuvre("fsd51fds5","Salle des statues","Thésée et le Minotaure","Statue en argile, 69 av. J.C. Epiphore","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","MEDIA"));
-    this.balises.push(new Oeuvre("fds11fds2","Salle des peintures","Charme d'Era","Huile sur toile, 1715 Pascal Mongo","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","MEDIA"));
+  public modalBaliseTitle:string = null;
+  public modalBaliseSousTitle:string = null;
+  public modalBaliseDescription:string = null;
+  public modalBaliseGroupe:Groupe = null;
+
+  constructor(public globals: Globals) {
   }
 
   ngOnInit(){
@@ -28,13 +34,33 @@ export class BalisesComponent {
   ngOnDestroy(){
   }
 
-  public openModifModal(oeuvre: Oeuvre):void{
-    this.oneModalIsOpen = oeuvre;
-    console.log(oeuvre + "OPEN")
+  public openModifModal(Balise: Balise):void{
+    this.oneModalIsOpen = Balise;
+  }
+
+  public openAddModal():void{
+    this.oneModalNewBaliseIsOpen = true;
   }
 
   public removeModal():void{
     document.body.classList.remove('modalIsDisplay');
     this.oneModalIsOpen = null;
+    this.oneModalNewBaliseIsOpen = false;
+  }
+
+  public createBalise():void{
+    let createdBalise: Balise = new Balise(
+      this.globals.Balises[this.globals.Balises.length-1].Id + 1,
+      1111,
+      this.modalBaliseTitle,
+      this.modalBaliseSousTitle,
+      this.modalBaliseDescription,
+      null,
+      this.modalBaliseGroupe,
+      null
+    )
+    console.log(createdBalise)
+
+    this.globals.apiPostBalise(createdBalise);
   }
 }

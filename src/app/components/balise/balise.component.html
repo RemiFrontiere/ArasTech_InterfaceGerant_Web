@@ -1,26 +1,29 @@
-<div class="card mb-4 box-shadow size">
+<div class="card mb-4 box-shadow size" *ngIf="balise != null">
   <div class="card-header bg-blue">
-    <h4 class="my-0 font-weight-normal">Balise {{ oeuvre.Id }}</h4>
+    <h4 class="my-0 font-weight-normal">Balise {{ balise.Id }}</h4>
   </div>
   <div class="card-body">
-    <h1 class="card-title pricing-card-title oeuvreTitle">{{ oeuvre.Titre }}</h1>
+    <h1 class="card-title pricing-card-title BaliseTitle">{{ balise.Titre }}</h1>
     <ul class="list-unstyled mt-3 mb-4">
-      <li class="oeuvreGroup">Groupe :<small class="text-muted"> {{ oeuvre.Groupe}}</small></li>
-      <li class="oeuvreSousTile">{{ oeuvre.SousTitre }}</li>
-      <li class="oeuvreDesc">{{ oeuvre.Description }}</li>
+      <li class="BaliseGroup">Groupe :<small class="text-muted"> {{ balise.Groupe.Name}}</small></li>
+      <li class="BaliseSousTile">{{ balise.SousTitre }}</li>
+      <li class="BaliseDesc">{{ balise.Description }}</li>
     </ul>
     <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="openModifModal()">Modifier</button>
   </div>
 </div>
+<div class="card mb-4 box-shadow size bg-blue add" *ngIf="balise == null">
+  <i class="material-icons">add_circle</i>
+</div>
 
 
-<!-- <mat-card class="oeuvreCard">
-  <div class="topOeuvre">
-    <h3>Balise {{ oeuvre.Id }}</h3>
-    <button mat-raised-button class="butOeuvre">Modifier</button>
+<!-- <mat-card class="BaliseCard">
+  <div class="topBalise">
+    <h3>Balise {{ Balise.Id }}</h3>
+    <button mat-raised-button class="butBalise">Modifier</button>
   </div>
   <div class="groupeCard">
-    <b>Groupe :</b> {{ oeuvre.Groupe }}
+    <b>Groupe :</b> {{ Balise.Groupe }}
   </div>
   <div class="textCard">
     <div class="textTitle"><b></b></div>

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Oeuvre } from '../../class/oeuvre';
+import { Balise } from '../../class/Balise';
 import { Globals } from '../../class/globals';
 
 @Component({
@@ -8,7 +8,7 @@ import { Globals } from '../../class/globals';
   styleUrls: ['./balise.component.scss']
 })
 export class BaliseComponent {
-  @Input() oeuvre: Oeuvre;
+  @Input() balise: Balise;
   @Output() openModal: EventEmitter<any> = new EventEmitter();
 
   constructor(private globals: Globals){
@@ -16,7 +16,7 @@ export class BaliseComponent {
   }
 
   public openModifModal():void{
-    this.openModal.emit(this.oeuvre);
+    this.openModal.emit(this.balise);
     this.globals.modalIsDisplay = true;
     document.body.classList.add('modalIsDisplay');
   }

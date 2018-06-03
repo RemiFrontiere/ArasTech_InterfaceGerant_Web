@@ -1,12 +1,16 @@
 <div class="myBalises">
   <div class="card-deck mb-3 text-center contentBalises">
-      <balise-component *ngFor="let balise of balises" [oeuvre]="balise" (openModal)="openModifModal($event)"></balise-component>
+      <balise-component *ngFor="let balise of globals.Balises" [balise]="balise" (openModal)="openModifModal($event)"></balise-component>
+      <balise-component [balise]="null" (click)="openAddModal()"></balise-component>
   </div>
-  <div *ngIf="oneModalIsOpen" class="modal fade show" tabindex="-1" role="dialog">
+
+
+  <div *ngIf="oneModalIsOpen || oneModalNewBaliseIsOpen" oneModalNewBaliseIsOpen class="modal fade show" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Balise {{ oneModalIsOpen.Id }}</h5>
+          <h5 *ngIf="oneModalIsOpen" class="modal-title">Balise {{ oneModalIsOpen.Id }}</h5>
+          <h5 *ngIf="oneModalNewBaliseIsOpen" class="modal-title">New Balise</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="removeModal()">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -26,32 +30,34 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Groupe:</span>
             </div>
-            <select class="form-control">
-              <option>Default select</option>
-              <option>XX select</option>
-              <option>dzdzd select</option>
+            <select  [(ngModel)]="modalBaliseGroupe" class="form-control">
+              <option *ngFor="let groupe of globals.Groupes">{{ groupe.Name }}</option>
             </select>
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Titre:</span>
             </div>
-            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input [(ngModel)]="modalBaliseTitle" #BaliseTitle="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Titre" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" >
+            <input [(ngModel)]="modalBaliseTitle" #BaliseTitle="ngModel" *ngIf="oneModalNewBaliseIsOpen" type="text" class="form-control">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Sous-titre:</span>
             </div>
-            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input [(ngModel)]="modalBaliseSousTitle" #BaliseSousTitle="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.SousTitre" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input [(ngModel)]="modalBaliseSousTitle" #BaliseSousTitle="ngModel" *ngIf="oneModalNewBaliseIsOpen" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Description:</span>
             </div>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea [(ngModel)]="modalBaliseDescription" #BaliseDescription="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Description" class="form-control"></textarea>
+            <textarea [(ngModel)]="modalBaliseDescription" #BaliseDescription="ngModel" *ngIf="oneModalNewBaliseIsOpen" class="form-control"></textarea>
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Sauvegarder</button>
+          <button *ngIf="oneModalIsOpen" type="button" class="btn btn-primary">Sauvegarder</button>
+          <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Create</button>
           <button type="button" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
         </div>
       </div>

@@ -1,0 +1,136 @@
+{
+     "beacons": [
+        {
+            "id": 1,
+            "code":"ABCDEFGH15AZERT",
+            "title":"Titre d'Balise",
+            "subtitle":"Sous-titre d'Balise",
+            "description":"C'est un beacon de test",
+            "quizzs":[
+                {
+                    "id": 1,
+                    "title":"Quizz difficile",
+                    "duration":15,
+                    "color":"red",
+                    "difficulty":"hard"
+                }
+            ],
+            "group":
+            {
+                "id":1,
+                "label":"Salle des verts",
+                "beacons":[]
+            },
+            "medias":[
+                {
+                    "id": 1,
+                    "beacon_id": 1,
+                    "label": "photo_beacon_1.mp4",
+                    "weight": 43210,
+                    "link": "https://link-to-the-video.com",
+                    "mime_type": "video/mp4"
+                },
+                {
+                    "id": 2,
+                    "beacon_id": 1,
+                    "label": "video_beacon_1.mp4",
+                    "weight": 43210,
+                    "link": "https://link-to-the-video.com",
+                    "mime_type": "video/mp4"
+                }
+            ]
+        }
+    ],
+    "quizzs":
+    [
+        {
+            "id": 1,
+            "title":"Quizz difficile",
+            "duration":15,
+            "number_of_good_answer_required": 2,
+            "color":"red",
+            "difficulty":"hard"
+        },
+        {
+            "id": 2,
+            "title":"Quizz facile",
+            "number_of_good_answer_required": 1,
+            "duration":5,
+            "color":"green",
+            "difficulty":"easy"
+        }
+    ],
+    "questions":
+    [
+        {
+            "id": 1,
+            "quizz_id": 1,
+            "label":"Qui est Le créateur de la joconde ?"
+        }
+    ],
+    "medias":
+    [
+        {
+            "id": 1,
+            "beacon_id": 1,
+            "label": "photo_beacon_1.jpeg",
+            "weight": 43210,
+            "link": "https://link-to-the-photo.com/photo",
+            "mime_type": "img/jpeg"
+        },
+        {
+            "id": 2,
+            "beacon_id": 1,
+            "label": "video_beacon_1.mp4",
+            "weight": 43210,
+            "link": "https://link-to-the-video.com",
+            "mime_type": "video/mp4"
+        }
+    ],
+    "groups":
+    [
+        {
+            "id":1,
+            "label":"Salle des verts",
+            "beacons":
+            [
+                {
+                    "id": 1,
+                    "code":"ABCDEFGH15AZERT",
+                    "title":"Titre d'Balise",
+                    "subtitle":"Sous-titre d'Balise",
+                    "description":"C'est un beacon de test",
+                    "quizzs":[],
+                    "medias":[]
+                }
+            ]
+        }
+    ],
+    "answers":
+    [
+        {
+            "id": 1,
+            "question_id": 1,
+            "label":"Leonard de Vinci",
+            "is_right":true
+        },
+        {
+            "id": 2,
+            "question_id": 1,
+            "label":"Leonard di Caprio",
+            "is_right":false
+        },
+        {
+            "id": 3,
+            "question_id": 1,
+            "label":"Van Gogh",
+            "is_right":false
+        },
+        {
+            "id": 4,
+            "question_id": 1,
+            "label":"test false",
+            "is_right":false
+        }
+    ]
+}

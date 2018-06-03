@@ -5,7 +5,7 @@
       <label class="liLabel02">Balises</label>
       <label class="liLabel03"></label>
     </li>
-    <groupe-component *ngFor="let groupe of groupes" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
+    <groupe-component *ngFor="let groupe of globals.Groupes" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
   </ul>
   <div *ngIf="oneModalIsOpen" class="modal fade show" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
