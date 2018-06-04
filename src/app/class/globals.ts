@@ -65,7 +65,7 @@ export class Globals {
     let headers = new Headers({ 'Access-Control-Allow-Origin':'*','Content-Type': 'application/json' });
     let requestOptions = new RequestOptions();
     requestOptions.method = RequestMethod.Get
-    // requestOptions.headers = headers;
+    requestOptions.headers = headers;
 
     // this.http.get('assets/json/all.json').subscribe(res => {
     this.http.get('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons',requestOptions).subscribe(res => {
