@@ -38,14 +38,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Titre:</span>
             </div>
-            <input [(ngModel)]="modalBaliseTitle" #BaliseTitle="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Titre" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" >
+            <input [(ngModel)]="modalBaliseTitle" #BaliseTitle="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Titre" type="text" class="form-control">
             <input [(ngModel)]="modalBaliseTitle" #BaliseTitle="ngModel" *ngIf="oneModalNewBaliseIsOpen" type="text" class="form-control">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Sous-titre:</span>
             </div>
-            <input [(ngModel)]="modalBaliseSousTitle" #BaliseSousTitle="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.SousTitre" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input [(ngModel)]="modalBaliseSousTitle" #BaliseSousTitle="ngModel" *ngIf="oneModalIsOpen" value="oneModalIsOpen.SousTitre" type="text" class="form-control">
             <input [(ngModel)]="modalBaliseSousTitle" #BaliseSousTitle="ngModel" *ngIf="oneModalNewBaliseIsOpen" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
@@ -56,9 +56,12 @@
             <textarea [(ngModel)]="modalBaliseDescription" #BaliseDescription="ngModel" *ngIf="oneModalNewBaliseIsOpen" class="form-control"></textarea>
           </div>
         <div class="modal-footer">
-          <button *ngIf="oneModalIsOpen" type="button" class="btn btn-primary">Sauvegarder</button>
-          <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Create</button>
-          <button type="button" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
+          <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="modalVerifActived = true" class="btn btn-danger">Supprimer</button>
+          <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="removeBalise()" class="btn btn-danger">Valider la suppression</button>
+          <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="modalVerifActived = false" class="btn btn-secondary">Annuler</button>
+          <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" class="btn btn-primary">Sauvegarder</button>
+          <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Créer</button>
+          <button type="button" *ngIf="!modalVerifActived" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
         </div>
       </div>
     </div>

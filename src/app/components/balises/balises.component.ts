@@ -19,6 +19,9 @@ export class BalisesComponent {
   public oneModalIsOpen:Balise = null;
   public oneModalNewBaliseIsOpen:boolean = false;
 
+  public modalVerifActived:boolean = false;
+
+
   public modalBaliseTitle:string = null;
   public modalBaliseSousTitle:string = null;
   public modalBaliseDescription:string = null;
@@ -34,8 +37,10 @@ export class BalisesComponent {
   ngOnDestroy(){
   }
 
-  public openModifModal(Balise: Balise):void{
-    this.oneModalIsOpen = Balise;
+  public openModifModal(balise: Balise):void{
+    this.oneModalIsOpen = balise;
+    this.modalVerifActived = false;
+    console.log(balise)
   }
 
   public openAddModal():void{
@@ -46,21 +51,35 @@ export class BalisesComponent {
     document.body.classList.remove('modalIsDisplay');
     this.oneModalIsOpen = null;
     this.oneModalNewBaliseIsOpen = false;
+    this.modalVerifActived = false;
   }
 
+
   public createBalise():void{
+    let codeBalise:string = "";
+    let num0:number;
+    for(let i=0; i < 15; i++){
+      num0 = Math.floor(Math.random() * 9)
+      codeBalise += num0.toString()
+    }
+
     let createdBalise: Balise = new Balise(
       this.globals.Balises[this.globals.Balises.length-1].Id + 1,
-      1111,
-      this.modalBaliseTitle,
-      this.modalBaliseSousTitle,
-      this.modalBaliseDescription,
+      codeBalise.toString(),
+      this.modalBaliseTitle || "",
+      this.modalBaliseSousTitle || "",
+      this.modalBaliseDescription || "",
       null,
-      this.modalBaliseGroupe,
+      null,
       null
     )
     console.log(createdBalise)
-
     this.globals.apiPostBalise(createdBalise);
+    this.removeModal();
+  }
+
+  public removeBalise():void{
+    this.globals.apiDeleteBalise(this.oneModalIsOpen);
+    this.removeModal();
   }
 }

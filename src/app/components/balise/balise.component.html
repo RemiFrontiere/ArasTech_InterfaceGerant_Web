@@ -5,7 +5,7 @@
   <div class="card-body">
     <h1 class="card-title pricing-card-title BaliseTitle">{{ balise.Titre }}</h1>
     <ul class="list-unstyled mt-3 mb-4">
-      <li class="BaliseGroup">Groupe :<small class="text-muted"> {{ balise.Groupe.Name}}</small></li>
+      <li class="BaliseGroup">Groupe :<small class="text-muted"> {{ showGroupeName() }}</small></li>
       <li class="BaliseSousTile">{{ balise.SousTitre }}</li>
       <li class="BaliseDesc">{{ balise.Description }}</li>
     </ul>

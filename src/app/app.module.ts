@@ -9,6 +9,7 @@ import { AppComponent } from './components/app/app.component';
 import { LoginComponent } from './components/login/login.component';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { BalisesComponent } from './components/balises/balises.component';
+import { QuestionnairesComponent } from './components/questionnaires/questionnaires.component';
 import { BaliseComponent } from './components/balise/balise.component';
 import { GroupesComponent } from './components/groupes/groupes.component';
 import { GroupeComponent } from './components/groupe/groupe.component';
@@ -98,6 +99,7 @@ const appRoutes: Routes = [
   { path: 'balises', component: BalisesComponent },
   { path: 'groupes', component: GroupesComponent },
   { path: 'etablissement', component: EtablissementComponent },
+  { path: 'questionnaires', component: QuestionnairesComponent },
   {
     path: 'app',
     component: AppComponent,
@@ -119,6 +121,7 @@ const appRoutes: Routes = [
     BalisesComponent,
     BaliseComponent,
     GroupesComponent,
+    QuestionnairesComponent,
     GroupeComponent
   ],
   imports: [

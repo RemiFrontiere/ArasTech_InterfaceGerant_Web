@@ -64,70 +64,70 @@ export class Balise{
 //   "difficulty":"easy"
 // }
   constructor(
-    private _id : number,
-    private _code: number,
-    private _titre : string,
-    private _sousTitre : string,
-    private _description : string,
-    private _quizs : Array<Quiz>,
-    private _groupe : Groupe,
-    private _medias : Array<Media>
+    private id : number,
+    private code: string,
+    private title : string,
+    private subtitle : string,
+    private description : string,
+    private quizzs : Array<Quiz>,
+    private group : Groupe,
+    private medias : Array<Media>
   ){}
 
   get Id():number{
-    return this._id;
+    return this.id;
   }
 
-  get Code():number{
-    return this._code;
+  get Code():string{
+    return this.code;
   }
 
   get Titre():string{
-    return this._titre;
+    return this.title;
   }
 
   get SousTitre():string{
-    return this._sousTitre;
+    return this.subtitle;
   }
 
   get Description():string{
-    return this._description;
+    return this.description;
   }
 
   get Quizs():Array<Quiz>{
-    return this._quizs;
+    return this.quizzs;
   }
 
   get Groupe():Groupe{
-    return this._groupe;
+    return this.group;
   }
 
   get Medias():Array<Media>{
-    return this._medias;
+    return this.medias;
   }
 
   set Titre(value: string){
-    this._titre = value;
+    this.title = value
   }
 
   set SousTitre(value: string){
-    this._sousTitre = value;
+    this.subtitle = value;
   }
 
   set Description(value: string){
-    this._description = value;
+    this.description = value;
   }
 
   set Quizs(value: Array<Quiz>){
-    this._quizs = value;
+    this.quizzs = value;
   }
 
   set Groupe(value:Groupe){
-    this._groupe = value;
+    this.group = value;
   }
 
   set Media(value:Array<Media>){
-    this._medias = value;
+    this.medias = value;
   }
 
 

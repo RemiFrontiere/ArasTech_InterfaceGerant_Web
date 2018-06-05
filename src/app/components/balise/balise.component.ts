@@ -21,4 +21,13 @@ export class BaliseComponent {
     document.body.classList.add('modalIsDisplay');
   }
 
+  public showGroupeName():string{
+    if(this.balise.Groupe){
+      return this.balise.Groupe.Name
+    }
+    else{
+      return 'Aucun'
+    }
+  }
+
 }

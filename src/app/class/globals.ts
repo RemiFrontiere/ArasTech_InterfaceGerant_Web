@@ -20,6 +20,16 @@ export class Globals {
   private _medias:Array<Media>;
 
   public jsonSav = null;
+
+  public headers = new Headers(
+        {
+          'Access-Control-Allow-Origin':'*',
+          'Content-Type':'application/json',
+          'Access-Control-Allow-Headers':'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+          'Access-Control-Allow-Credentials':'true',
+          'Access-Control-Allow-Methods':'OPTIONS,GET,PUT,POST,DELETE'
+        }
+    );
   // private _etablissementLogo:file = "";
 
   constructor(private http:Http){
@@ -62,10 +72,13 @@ export class Globals {
   public getJson()
   {
     let json;
-    let headers = new Headers({ 'Access-Control-Allow-Origin':'*','Content-Type': 'application/json' });
     let requestOptions = new RequestOptions();
     requestOptions.method = RequestMethod.Get
-    requestOptions.headers = headers;
+    requestOptions.headers = this.headers;
+
+    this._balises = new Array<Balise>();
+    this._groupes = new Array<Groupe>();
+    this._medias = new Array<Media>();
 
     // this.http.get('assets/json/all.json').subscribe(res => {
     this.http.get('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons',requestOptions).subscribe(res => {
@@ -88,33 +101,68 @@ export class Globals {
         for(let quiz of i['quizzs']){
           quizs.push(new Quiz(quiz["id"], quiz["title"], quiz["duration"], quiz["color"], quiz["difficulty"]));
         }
-        group = new Groupe(i["group"]["id"], i["group"]["label"], beaconsGroup)
+        if(i["group"]){
+          group = new Groupe(i["group"]["id"], i["group"]["label"], beaconsGroup)
+        }
 
         let balise = new Balise(i["id"], i["code"], i["title"], i["subtitle"], i["description"],
         quizs, group, medias);
         this._balises.push(balise);
 
-        group.addBalise(balise);
-        if(!this._groupes.find(x => x.Id == group.Id)){
-          this._groupes.push(group);
+        if(i["group"]){
+          group.addBalise(balise);
+          if(!this._groupes.find(x => x.Id == group.Id)){
+            this._groupes.push(group);
+          }
         }
+
+
       }
     });
   }
 
+
   public apiPostBalise(balise:Balise)
   {
-    let json;
-
     let requestOptions = new RequestOptions();
     requestOptions.method = RequestMethod.Post
+    requestOptions.headers = this.headers;
+
+    console.log("SAVEDJSON:", JSON.stringify(balise,this.getCircularReplacer()))
 
     this.http.post('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons',
-    this.jsonSav
+    JSON.stringify(balise, this.getCircularReplacer())
     ,requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
+      this.getJson()
     });
   }
+
+  public apiDeleteBalise(balise:Balise)
+  {
+    let requestOptions = new RequestOptions();
+    requestOptions.method = RequestMethod.Delete
+    requestOptions.headers = this.headers;
+
+    this.http.delete('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons/'+balise.Id
+    ,requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      this.getJson()
+    });
+  }
+
+  public getCircularReplacer = () => {
+    const seen = new WeakSet;
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
 
   get Balises():Array<Balise>{
     return this._balises;
@@ -126,6 +174,7 @@ export class Globals {
   get Groupes():Array<Groupe>{
     return this._groupes;
   }
+
   set Groupes(value: Array<Groupe>){
     this._groupes = value
   }
