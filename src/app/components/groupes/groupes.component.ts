@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { GroupeComponent } from '../groupe/groupe.component';
 import { Globals } from '../../class/globals';
-import { Groupe } from '../../class/Groupe';
+import { Groupe } from '../../class/groupe';
 import { Balise } from '../../class/balise';
 
 @Component({

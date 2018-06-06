@@ -1,6 +1,6 @@
-import { Media } from './Media';
-import { Groupe } from './Groupe';
-import { Quiz } from './Quiz';
+import { Media } from './media';
+import { Groupe } from './groupe';
+import { Quiz } from './quiz';
 
 
 export class Balise{

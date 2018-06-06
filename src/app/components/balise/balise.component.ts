@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Balise } from '../../class/Balise';
+import { Balise } from '../../class/balise';
 import { Globals } from '../../class/globals';
 
 @Component({

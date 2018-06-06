@@ -1,8 +1,8 @@
 import { Component,Injectable, OnInit, OnDestroy } from '@angular/core';
-import { Media } from '../../class/Media';
-import { Groupe } from '../../class/Groupe';
-import { Quiz } from '../../class/Quiz';
-import { Balise } from '../../class/Balise';
+import { Media } from '../../class/media';
+import { Groupe } from '../../class/groupe';
+import { Quiz } from '../../class/quiz';
+import { Balise } from '../../class/balise';
 
 import { BaliseComponent } from '../balise/balise.component';
 import { Globals } from '../../class/globals';

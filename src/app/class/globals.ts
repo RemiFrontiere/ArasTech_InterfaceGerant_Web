@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 // import { Http, Headers } from '@angular/http'
 import { Http, Response, RequestOptions, RequestMethod, Headers } from '@angular/http';
 // import { RequestOptions } from '@angular/http';
-import { Media } from './Media';
-import { Groupe } from './Groupe';
-import { Quiz } from './Quiz';
-import { Balise } from './Balise';
+import { Media } from './media';
+import { Groupe } from './groupe';
+import { Quiz } from './quiz';
+import { Balise } from './balise';
 
 
 @Injectable()

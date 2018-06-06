@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Groupe } from '../../class/Groupe';
+import { Groupe } from '../../class/groupe';
 import { Globals } from '../../class/globals';
 
 @Component({

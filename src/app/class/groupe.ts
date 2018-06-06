@@ -1,4 +1,4 @@
-import { Balise } from './Balise';
+import { Balise } from './balise';
 
 //   "group":
 //   {
