@@ -1,5 +1,3 @@
-import { Balise } from './balise';
-
 //   "group":
 //   {
 //       "id":1,
@@ -9,30 +7,23 @@ import { Balise } from './balise';
 
 export class Groupe{
   constructor(
-    private _id : number,
-    private _name : string,
-    public _balises : Array<Balise>
+    private id : number,
+    private label : string
   ){}
 
   get Id(){
-    return this._id;
+    return this.id;
   }
   get Name(){
-    return this._name;
+    return this.label;
   }
   set Name(value:string){
-    this._name = value;
+    this.label = value;
   }
-  get Balises():Array<Balise>{
-    return this._balises;
-  }
-  set Balises(value:Array<Balise>){
-    this._balises = value;
-  }
-
-  public addBalise(value:Balise):void{
-    if(value != null){
-      this._balises.push(value);
-    }
-  }
+  //
+  // public addBalise(value:Balise):void{
+  //   if(value != null){
+  //     this._balises.push(value);
+  //   }
+  // }
 }

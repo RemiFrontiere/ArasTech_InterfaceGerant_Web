@@ -1,11 +1,16 @@
-<li class="list-group-item d-flex justify-content-between align-items-center">
+<li *ngIf="groupe" class="list-group-item d-flex justify-content-between align-items-center">
   <label class="liLabel01">{{groupe.Name}}</label>
   <div class="liLabel02">
-    <button *ngFor="let balise of groupe.Balises" type="button" class="btn btn-primary ">
+    <button *ngFor="let balise of groupBalises" type="button" class="btn btn-primary ">
       Balise <span class="badge badge-light">{{balise.Id}}</span>
     </button>
   </div>
   <label class="liLabel03">
-    <button type="button" class="btn btn-outline-danger" (click)="openModifModal()">+</button>
+    <button type="button" class="btn btn-outline-danger modify" (click)="openModifModal()">
+      <i class="material-icons">build</i>
+    </button>
   </label>
+</li>
+<li *ngIf="!groupe" class="list-group-item d-flex justify-content-between align-items-center">
+  <button type="button" class="btn btn-primary full"><i class="material-icons">add_box</i></button>
 </li>

@@ -22,8 +22,9 @@ export class BaliseComponent {
   }
 
   public showGroupeName():string{
-    if(this.balise.Groupe){
-      return this.balise.Groupe.Name
+
+    if(this.balise.GroupeId){
+      return this.globals.Groupes.find(x => x.Id == this.balise.GroupeId).Name
     }
     else{
       return 'Aucun'

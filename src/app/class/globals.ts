@@ -92,31 +92,35 @@ export class Globals {
         let quizs: Array<Quiz> = new Array<Quiz>();
         let beaconsGroup: Array<Balise> = new Array<Balise>();
 
-        for(let media of i['medias']){
-          medias.push(new Media(media["id"],media["beacon_id"], media["label"], media["weight"], media["link"], media["mime_type"]));
-          if(!this._medias.find(x => x.Id == media.Id)){
-            this._medias.push(new Media(media["id"],media["beacon_id"], media["label"], media["weight"], media["link"], media["mime_type"]))
+        if(i["medias"]){
+          for(let media of i['medias']){
+            medias.push(new Media(media["id"],media["beacon_id"], media["label"], media["weight"], media["link"], media["mime_type"]));
+            if(!this._medias.find(x => x.Id == media.Id)){
+              this._medias.push(new Media(media["id"],media["beacon_id"], media["label"], media["weight"], media["link"], media["mime_type"]))
+            }
           }
         }
-        for(let quiz of i['quizzs']){
-          quizs.push(new Quiz(quiz["id"], quiz["title"], quiz["duration"], quiz["color"], quiz["difficulty"]));
+        if(i["quizzs"]){
+          for(let quiz of i['quizzs']){
+            quizs.push(new Quiz(quiz["id"], quiz["title"], quiz["duration"], quiz["color"], quiz["difficulty"]));
+          }
         }
-        if(i["group"]){
-          group = new Groupe(i["group"]["id"], i["group"]["label"], beaconsGroup)
-        }
+        // if(i["group"]){
+        //   group = new Groupe(i["group"]["id"], i["group"]["label"], beaconsGroup)
+        // }
 
         let balise = new Balise(i["id"], i["code"], i["title"], i["subtitle"], i["description"],
-        quizs, group, medias);
+        quizs, i["group_id"] || null, medias);
         this._balises.push(balise);
-
-        if(i["group"]){
-          group.addBalise(balise);
-          if(!this._groupes.find(x => x.Id == group.Id)){
-            this._groupes.push(group);
-          }
-        }
-
-
+      }
+    });
+    // GROUPES
+    this.http.get('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups',requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      json = res.json();
+      this.jsonSav = json;
+      for (let i of json) {
+        this.Groupes.push(new Groupe(i["id"], i["label"]))
       }
     });
   }
@@ -146,6 +150,34 @@ export class Globals {
 
     this.http.delete('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons/'+balise.Id
     ,requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      this.getJson()
+    });
+  }
+
+  public apiPutBalise(balise:Balise):void
+  {
+    let requestOptions = new RequestOptions();
+    requestOptions.method = RequestMethod.Put
+    requestOptions.headers = this.headers;
+
+    this.http.put('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups/'+balise.Id,
+    JSON.stringify(balise, this.getCircularReplacer()),
+    requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      this.getJson()
+    });
+  }
+
+  public apiPutGroupe(group:Groupe):void
+  {
+    let requestOptions = new RequestOptions();
+    requestOptions.method = RequestMethod.Put
+    requestOptions.headers = this.headers;
+
+    this.http.put('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups/'+group.Id,
+    JSON.stringify(group, this.getCircularReplacer()),
+    requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
       this.getJson()
     });

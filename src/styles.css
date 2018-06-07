@@ -11,6 +11,10 @@ body{
 .modalIsDisplay{
   overflow: hidden;
 }
+.Bg-blue {
+    background: #004a80;
+    color: #fff;
+}
 
 /*
 body{
@@ -25,10 +29,23 @@ body{
   width: 0px;
 } */
 
-
-.bg-blue{
-  background: #3f51b5;
-  color: #fff;
+.btn-primary:not(:disabled):not(.disabled).active{
+  background-color: #035392;
+  border: none;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+  background-color: #035392;
+  border: none;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #035392;;
+    border: none;
+}
+button.btn-primary {
+    color: #fff;
+    background-color: #004a80;
+    border: none;
 }
 
 .bg-button-blue{

@@ -1,11 +1,12 @@
 <div class="myGroupes">
   <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center menu">
+    <li class="list-group-item d-flex justify-content-between align-items-center menu Bg-blue">
       <label class="liLabel01">Nom du Groupe</label>
       <label class="liLabel02">Balises</label>
       <label class="liLabel03"></label>
     </li>
-    <groupe-component *ngFor="let groupe of globals.Groupes" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
+    <groupe-component *ngFor="let groupe of allGroup" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
+    <groupe-component [groupe]="null"></groupe-component>
   </ul>
   <div *ngIf="oneModalIsOpen" class="modal fade show" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -21,20 +22,33 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Nom:</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="basic-addon1" value="{{oneModalIsOpen.Name}}">
+            <input [(ngModel)]="modalGroupNom" #GroupeTitle="ngModel" type="text" class="form-control" aria-describedby="basic-addon1" value="{{modalGroupNom}}">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Balises:</span>
             </div>
-            <select class="form-control">
-              <option>Default select</option>
-              <option>XX select</option>
-              <option>dzdzd select</option>
-            </select>
+            <ul class="list-group">
+              <li *ngFor="let balise of balisesForModifModal" class="list-group-item modifBaliseLi">
+                {{balise.Id + " - " + balise.Titre}}
+                <i class="material-icons remove bg-danger" (click)="removeOneBaliseFromGroup(balise)">remove</i>
+              </li>
+              <li class="list-group-item">
+                <div class="dropdown groupBaliseList">
+                  <button class="btn btn-secondary dropdown-toggle ajoutBalise" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons add bg-success">add</i>
+                    Ajouter une Balise
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a *ngFor="let balise of getOthersBalises()" class="dropdown-item" (click)="addOneBaliseToGroup(balise)">{{balise.Id + " - " + balise.Titre}}</a>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Sauvegarder</button>
+          <button type="button" class="btn btn-primary" (click)="saveModification()">Sauvegarder</button>
           <button type="button" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
         </div>
       </div>

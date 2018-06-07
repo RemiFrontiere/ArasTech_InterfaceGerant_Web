@@ -1,4 +1,4 @@
-<nav *ngIf="globals.isLogged" class="navbar navbar-expand-md navbar-dark fixed-top bg-blue">
+<nav *ngIf="globals.isLogged" class="navbar navbar-expand-xl navbar-dark fixed-top Bg-blue">
   <a class="navbar-brand" routerLink="app" routerLinkActive="active" (click)="changeToolbarCurrentColor('app')">
     <span class="titleSpan">AR o'Notes</span>
   </a>
@@ -20,7 +20,9 @@
         <a routerLink="/questionnaires" routerLinkActive="active" (click)="changeToolbarCurrentColor('groupes')" class="btn btn-primary bg-button-blue" href="#">Mes questionnaires</a>
       </li>
     </ul>
-    <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')" class="btn btn-primary bg-button-blue" href="#">Déconnection</a>
+    <div class="btnDeconection">
+      <a routerLink="app" routerLinkActive="active" (click)="globals.isLogged = false; changeToolbarCurrentColor('app')" class="btn btn-primary bg-button-blue" href="#">Déconnection</a>
+    </div>
     <img class="logoAras" src="../../../assets/logoArasNoir.png" alt="">
   </div>
 </nav>

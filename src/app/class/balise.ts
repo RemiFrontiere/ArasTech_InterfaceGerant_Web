@@ -70,7 +70,7 @@ export class Balise{
     private subtitle : string,
     private description : string,
     private quizzs : Array<Quiz>,
-    private group : Groupe,
+    private group : number,
     private medias : Array<Media>
   ){}
 
@@ -98,7 +98,7 @@ export class Balise{
     return this.quizzs;
   }
 
-  get Groupe():Groupe{
+  get GroupeId():number{
     return this.group;
   }
 
@@ -122,7 +122,7 @@ export class Balise{
     this.quizzs = value;
   }
 
-  set Groupe(value:Groupe){
+  set GroupeId(value:number){
     this.group = value;
   }
 

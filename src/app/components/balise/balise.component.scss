@@ -15,6 +15,11 @@
 }
 .card{
     width: 300px;
+    border-radius: 0;
+    border: none;
+}
+.card-header:first-child{
+  border-radius: 0;
 }
 .size{
   // width: 300px;

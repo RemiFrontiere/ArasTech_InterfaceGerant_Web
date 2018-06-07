@@ -11,8 +11,43 @@
   height: 100%;
 }
 
+.ajoutBalise{
+  width: 100%;
+  background-color: #343a40;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.groupBaliseList{
+  a{
+    cursor: pointer;
+  }
+}
 .menu{
-  background-color: #075bbf;
+  // background-color: #075bbf;
   color: white;
   font-weight: bold;
+}
+.modifBaliseLi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i{
+    position: absolute;
+    right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.remove{
+  cursor: pointer;
+}
+.add{
+  cursor: pointer;
+  margin-right: 5px;
 }
