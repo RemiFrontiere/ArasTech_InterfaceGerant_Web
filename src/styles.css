@@ -16,6 +16,9 @@ body{
     color: #fff;
 }
 
+h1{
+    font-size: 2rem;
+}
 /*
 body{
   overflow-y: hidden;
@@ -37,9 +40,14 @@ body{
   background-color: #035392;
   border: none;
 }
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #035392;
+    border-color: #035392;
+}
 .btn-primary:hover {
     color: #fff;
-    background-color: #035392;;
+    background-color: #035392;
     border: none;
 }
 button.btn-primary {

@@ -2,9 +2,17 @@
 // .BaliseCard {
 //   width: 350px;
 // }
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    margin-top: 15px;
+    /* border-top: 50px; */
+}
 
+h1{
+  font-size: 2rem;
+}
 img.carouselImg{
-  height: 300px;
+  height: 200px;
 }
 .add{
       display: flex;
@@ -30,14 +38,17 @@ img.carouselImg{
   // height: 500px;
 }
 .BaliseTitle{
-  height: 100px;
+  height: 80px;
 }
 .BaliseSousTile{
   height: 55px;
+  font-size: 13px;
 }
 .BaliseDesc{
   overflow: auto;
   height: 150px;
+  font-size: 13px;
+  border: 1px solid #ababab;
 }
 
 
