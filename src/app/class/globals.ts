@@ -36,7 +36,7 @@ export class Globals {
     this._balises = new Array<Balise>();
     this._groupes = new Array<Groupe>();
     this._medias = new Array<Media>();
-    this.getJson();
+    this.apiGetBalise();
   }
 
 
@@ -69,7 +69,7 @@ export class Globals {
     this._etablissementName = value
   }
 
-  public getJson()
+  public apiGetBalise()
   {
     let json;
     let requestOptions = new RequestOptions();
@@ -108,9 +108,7 @@ export class Globals {
         // if(i["group"]){
         //   group = new Groupe(i["group"]["id"], i["group"]["label"], beaconsGroup)
         // }
-
-        let balise = new Balise(i["id"], i["code"], i["title"], i["subtitle"], i["description"],
-        quizs, i["group_id"] || null, medias);
+        let balise = new Balise(i["id"], i["code"], i["title"], i["subtitle"], i["description"],  i["group_id"] || null, medias);
         this._balises.push(balise);
       }
     });
@@ -138,7 +136,7 @@ export class Globals {
     JSON.stringify(balise, this.getCircularReplacer())
     ,requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
-      this.getJson()
+      this.apiGetBalise()
     });
   }
 
@@ -151,7 +149,27 @@ export class Globals {
     this.http.delete('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons/'+balise.Id
     ,requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
-      this.getJson()
+      this.apiGetBalise()
+    });
+  }
+
+  public apiGetGroupes()
+  {
+    let json;
+    let requestOptions = new RequestOptions();
+    requestOptions.method = RequestMethod.Get
+    requestOptions.headers = this.headers;
+
+    this.Groupes = new Array<Groupe>();
+
+    // GROUPES
+    this.http.get('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups',requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      json = res.json();
+      this.jsonSav = json;
+      for (let i of json) {
+        this.Groupes.push(new Groupe(i["id"], i["label"]))
+      }
     });
   }
 
@@ -161,11 +179,26 @@ export class Globals {
     requestOptions.method = RequestMethod.Put
     requestOptions.headers = this.headers;
 
-    this.http.put('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups/'+balise.Id,
+    this.http.put('http://alexisboulet.craym.eu/aras-tech-api/web/api/beacons/'+balise.Id,
     JSON.stringify(balise, this.getCircularReplacer()),
     requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
-      this.getJson()
+    });
+  }
+
+  public apiPostGroupe(group:Groupe):void
+  {
+    let requestOptions = new RequestOptions();
+    requestOptions.method = RequestMethod.Post
+    requestOptions.headers = this.headers;
+
+    console.log("SAVEDJSON:", JSON.stringify(group,this.getCircularReplacer()))
+
+    this.http.put('http://alexisboulet.craym.eu/aras-tech-api/web/api/groups',
+    JSON.stringify(group, this.getCircularReplacer()),
+    requestOptions).subscribe(res => {
+      console.log("HTTPResult:",res);
+      this.apiGetGroupes();
     });
   }
 
@@ -179,7 +212,6 @@ export class Globals {
     JSON.stringify(group, this.getCircularReplacer()),
     requestOptions).subscribe(res => {
       console.log("HTTPResult:",res);
-      this.getJson()
     });
   }
 

@@ -69,8 +69,8 @@ export class Balise{
     private title : string,
     private subtitle : string,
     private description : string,
-    private quizzs : Array<Quiz>,
-    private group : number,
+    // private quizzs : Array<Quiz>,
+    private groupId : number,
     private medias : Array<Media>
   ){}
 
@@ -80,6 +80,9 @@ export class Balise{
 
   get Code():string{
     return this.code;
+  }
+  set Code(value: string){
+   this.code = value;
   }
 
   get Titre():string{
@@ -94,12 +97,12 @@ export class Balise{
     return this.description;
   }
 
-  get Quizs():Array<Quiz>{
-    return this.quizzs;
-  }
+  // get Quizs():Array<Quiz>{
+  //   return this.quizzs;
+  // }
 
   get GroupeId():number{
-    return this.group;
+    return this.groupId;
   }
 
   get Medias():Array<Media>{
@@ -118,12 +121,12 @@ export class Balise{
     this.description = value;
   }
 
-  set Quizs(value: Array<Quiz>){
-    this.quizzs = value;
-  }
+  // set Quizs(value: Array<Quiz>){
+  //   this.quizzs = value;
+  // }
 
   set GroupeId(value:number){
-    this.group = value;
+    this.groupId = value;
   }
 
   set Media(value:Array<Media>){

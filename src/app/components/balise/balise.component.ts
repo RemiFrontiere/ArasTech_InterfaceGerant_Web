@@ -22,12 +22,13 @@ export class BaliseComponent {
   }
 
   public showGroupeName():string{
-
-    if(this.balise.GroupeId){
-      return this.globals.Groupes.find(x => x.Id == this.balise.GroupeId).Name
-    }
-    else{
-      return 'Aucun'
+    if(this.balise){
+      if(this.globals.Groupes.find(x => x.Id == this.balise.GroupeId)){
+        return this.globals.Groupes.find(x => x.Id == this.balise.GroupeId).Name
+      }
+      else{
+        return 'Aucun'
+      }
     }
   }
 

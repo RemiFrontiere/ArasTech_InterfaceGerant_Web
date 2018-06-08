@@ -23,6 +23,7 @@ export class BalisesComponent {
 
 
   public modalBaliseTitle:string = null;
+  public modalBaliseCode:string = null;
   public modalBaliseSousTitle:string = null;
   public modalBaliseDescription:string = null;
   public modalBaliseGroupe:Groupe = null;
@@ -38,13 +39,17 @@ export class BalisesComponent {
   }
 
   public openModifModal(balise: Balise):void{
+    // this.modalBaliseTitle = balise.Titre;
+    // this.modalBaliseSousTitle = balise.SousTitre;
+    // this.modalBaliseDescription = balise.Description;
+    this.modalBaliseGroupe = this.globals.Groupes.find(x => x.Id == balise.GroupeId);
     this.oneModalIsOpen = balise;
     this.modalVerifActived = false;
-    console.log(balise)
   }
 
   public openAddModal():void{
     this.oneModalNewBaliseIsOpen = true;
+    this.modalBaliseGroupe = this.globals.Groupes[0]
   }
 
   public removeModal():void{
@@ -65,12 +70,11 @@ export class BalisesComponent {
 
     let createdBalise: Balise = new Balise(
       this.globals.Balises[this.globals.Balises.length-1].Id + 1,
-      codeBalise.toString(),
+      this.modalBaliseCode,
       this.modalBaliseTitle || "",
       this.modalBaliseSousTitle || "",
       this.modalBaliseDescription || "",
-      null,
-      null,
+      this.modalBaliseGroupe.Id,
       null
     )
     console.log(createdBalise)
@@ -78,8 +82,19 @@ export class BalisesComponent {
     this.removeModal();
   }
 
+  public saveModificationForBalise():void{
+
+    this.globals.apiPutBalise(this.oneModalIsOpen);
+    this.removeModal();
+  }
+
   public removeBalise():void{
     this.globals.apiDeleteBalise(this.oneModalIsOpen);
     this.removeModal();
+  }
+
+  public onModalGroupChange(group:Groupe):void{
+    this.modalBaliseGroupe = group
+    this.oneModalIsOpen.GroupeId = group.Id
   }
 }

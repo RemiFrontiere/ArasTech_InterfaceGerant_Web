@@ -13,6 +13,8 @@ import { Balise } from '../../class/balise';
 export class GroupesComponent implements OnChanges{
   // public groupes :Array<Groupe>;
   public oneModalIsOpen:Groupe = null;
+  public oneModalNewGroupeIsOpen:boolean = false;
+
   public balisesForModifModal:Array<Balise>;
   public allGroup:Array<Groupe>;
   public modalGroupNom:string = null;
@@ -36,9 +38,15 @@ export class GroupesComponent implements OnChanges{
     console.log(Balise + "OPEN")
   }
 
+  public openAddModal():void{
+    this.oneModalNewGroupeIsOpen = true;
+  }
+
   public removeModal():void{
     document.body.classList.remove('modalIsDisplay');
     this.oneModalIsOpen = null;
+    this.oneModalNewGroupeIsOpen = false;
+    // this.modalVerifActived = false;
   }
 
   ngOnChanges() {
@@ -82,13 +90,21 @@ export class GroupesComponent implements OnChanges{
 
     for(let i = 0; i < this.balisesForModifModal.length; i++){
       this.globals.Balises.find(x => x.Id == this.balisesForModifModal[i].Id).GroupeId = this.oneModalIsOpen.Id;
+      this.globals.apiPutBalise(this.globals.Balises.find(x => x.Id == this.balisesForModifModal[i].Id))
     }
 
-    this.oneModalIsOpen.Name = this.modalGroupNom;
-    this.globals.apiPutGroupe(this.oneModalIsOpen);
+    if(this.oneModalIsOpen.Name != this.modalGroupNom){
+      this.oneModalIsOpen.Name = this.modalGroupNom;
+      this.globals.apiPutGroupe(this.oneModalIsOpen);
+    }
 
     this.ngOnChanges();
-    this.oneModalIsOpen = null;
+    this.removeModal();
+  }
+
+  public createGroupe():void{
+    this.globals.apiPostGroupe(new Groupe(1,this.modalGroupNom));
+    this.removeModal();
   }
 
 

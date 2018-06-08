@@ -6,13 +6,14 @@
       <label class="liLabel03"></label>
     </li>
     <groupe-component *ngFor="let groupe of allGroup" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
-    <groupe-component [groupe]="null"></groupe-component>
+    <groupe-component [groupe]="null" (click)="openAddModal()"></groupe-component>
   </ul>
-  <div *ngIf="oneModalIsOpen" class="modal fade show" tabindex="-1" role="dialog">
+  <div *ngIf="oneModalIsOpen || oneModalNewGroupeIsOpen" class="modal fade show" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Groupe {{ oneModalIsOpen.Name }}</h5>
+          <h5 *ngIf="oneModalNewGroupeIsOpen" class="modal-title">Nouveau Groupe</h5>
+          <h5 *ngIf="oneModalIsOpen" class="modal-title">Groupe {{ oneModalIsOpen.Name }}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="removeModal()">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -23,8 +24,9 @@
               <span class="input-group-text" id="basic-addon1">Nom:</span>
             </div>
             <input [(ngModel)]="modalGroupNom" #GroupeTitle="ngModel" type="text" class="form-control" aria-describedby="basic-addon1" value="{{modalGroupNom}}">
+            <input [(ngModel)]="modalGroupNom" #BaliseTitle="ngModel" *ngIf="oneModalNewBaliseIsOpen" type="text" class="form-control">
           </div>
-          <div class="input-group mb-3">
+          <div class="input-group mb-3" *ngIf="oneModalIsOpen">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Balises:</span>
             </div>
@@ -48,7 +50,8 @@
             </ul>
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="saveModification()">Sauvegarder</button>
+          <button *ngIf="oneModalIsOpen" type="button" class="btn btn-primary" (click)="saveModification()">Sauvegarder</button>
+          <button *ngIf="oneModalNewGroupeIsOpen" type="button" class="btn btn-primary" (click)="createGroupe()">Créer</button>
           <button type="button" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
         </div>
       </div>
