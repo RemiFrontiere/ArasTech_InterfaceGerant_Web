@@ -62,14 +62,14 @@
             <textarea [(ngModel)]="oneModalIsOpen.Description" #BaliseDescription="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Description" class="form-control"></textarea>
             <textarea [(ngModel)]="modalBaliseDescription" #BaliseDescription="ngModel" *ngIf="oneModalNewBaliseIsOpen" class="form-control"></textarea>
           </div>
-        <div class="modal-footer">
-          <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="modalVerifActived = true" class="btn btn-danger">Supprimer</button>
-          <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="removeBalise()" class="btn btn-danger">Valider la suppression</button>
-          <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="modalVerifActived = false" class="btn btn-secondary">Annuler</button>
-          <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="saveModificationForBalise()" class="btn btn-primary">Sauvegarder</button>
-          <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Créer</button>
-          <button type="button" *ngIf="!modalVerifActived" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
-        </div>
+          <div class="modal-footer">
+            <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="modalVerifActived = true" class="btn btn-danger">Supprimer</button>
+            <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="removeBalise()" class="btn btn-danger">Valider la suppression</button>
+            <button *ngIf="oneModalIsOpen && modalVerifActived" type="button" (click)="modalVerifActived = false" class="btn btn-secondary">Annuler</button>
+            <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="saveModificationForBalise()" class="btn btn-primary">Sauvegarder</button>
+            <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Créer</button>
+            <button type="button" *ngIf="!modalVerifActived" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
+          </div>
       </div>
     </div>
   </div>
