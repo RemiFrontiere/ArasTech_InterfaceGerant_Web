@@ -9,8 +9,20 @@
 }
 
 
+.carousel {
+    position: relative;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .material-icons{
+      font-size: 200px;
+    }
+}
+
 h1{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 img.carouselImg{
   height: 200px;
@@ -39,7 +51,7 @@ img.carouselImg{
   // height: 500px;
 }
 .BaliseTitle{
-  height: 80px;
+  // height: 80px;
 }
 .BaliseSousTile{
   height: 55px;

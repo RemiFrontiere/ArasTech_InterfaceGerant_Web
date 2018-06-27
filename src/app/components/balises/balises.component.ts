@@ -45,11 +45,13 @@ export class BalisesComponent {
     this.modalBaliseGroupe = this.globals.Groupes.find(x => x.Id == balise.GroupeId);
     this.oneModalIsOpen = balise;
     this.modalVerifActived = false;
+    console.log("MODIFMODAL");
   }
 
   public openAddModal():void{
     this.oneModalNewBaliseIsOpen = true;
     this.modalBaliseGroupe = this.globals.Groupes[0]
+    console.log("ADDMODAL");
   }
 
   public removeModal():void{
@@ -79,6 +81,10 @@ export class BalisesComponent {
     )
     console.log(createdBalise)
     this.globals.apiPostBalise(createdBalise);
+    this.modalBaliseTitle = "";
+    this.modalBaliseSousTitle = "";
+    this.modalBaliseDescription = "";
+    this.modalBaliseCode = "";
     this.removeModal();
   }
 

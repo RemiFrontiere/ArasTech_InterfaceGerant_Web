@@ -72,7 +72,8 @@ export class Balise{
     // private quizzs : Array<Quiz>,
     private groupId : number,
     private medias : Array<Media>
-  ){}
+  ){
+  }
 
   get Id():number{
     return this.id;

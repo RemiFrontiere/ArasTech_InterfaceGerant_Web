@@ -13,6 +13,7 @@ import { QuestionnairesComponent } from './components/questionnaires/questionnai
 import { BaliseComponent } from './components/balise/balise.component';
 import { GroupesComponent } from './components/groupes/groupes.component';
 import { GroupeComponent } from './components/groupe/groupe.component';
+import { QuestionComponent } from './components/question/question.component'
 
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { HttpModule } from '@angular/http';
@@ -122,7 +123,8 @@ const appRoutes: Routes = [
     BaliseComponent,
     GroupesComponent,
     QuestionnairesComponent,
-    GroupeComponent
+    GroupeComponent,
+    QuestionComponent
   ],
   imports: [
     FormsModule,

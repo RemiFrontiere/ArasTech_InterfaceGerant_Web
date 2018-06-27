@@ -1,47 +1,16 @@
 <div class="myGroupes">
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center menu Bg-blue">
-      <label class="liLabel01Q">Questionnaire</label>
-      <label class="liLabel02Q">Nombre de questions posées</label>
-      <label class="liLabel03Q">Nombre de questions total</label>
-      <label class="liLabel04Q">Durée (sec)</label>
-    </li>
-    <groupe-component *ngFor="let groupe of globals.Groupes" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
-  </ul>
-
-
-
-  <!-- <div *ngIf="oneModalIsOpen" class="modal fade show" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Groupe {{ oneModalIsOpen.Name }}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="removeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Nom:</span>
-            </div>
-            <input type="text" class="form-control" aria-describedby="basic-addon1" value="{{oneModalIsOpen.Name}}">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Balises:</span>
-            </div>
-            <select class="form-control">
-              <option>Default select</option>
-              <option>XX select</option>
-              <option>dzdzd select</option>
-            </select>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Sauvegarder</button>
-          <button type="button" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
-        </div>
+  <h1>Mes Quizzs</h1>
+  <div class="card-deck mb-3 text-center contentBalises" *ngFor="let quizz of globals.Quizzs">
+    <div class="quizz" [ngStyle]="{'border-color': quizz.Color}">
+      <h2>Quizz {{quizz.title}}</h2>
+      <div class="x">
+        <p>Nombre de bonne réponses : {{quizz.numberOfRequestedGoodAnswers}}</p>
+        <p>Difficulté : {{quizz.Difficulty}}</p>
+        <p>Durée : {{quizz.Duration}} minutes</p>
       </div>
+      <div class="color" [ngStyle]="{'background-color': quizz.Color}"></div>
+      <question-component *ngFor="let question of getQuestionsFor(quizz)" [question]="question"></question-component>
     </div>
+
   </div>
-</div> -->
+</div>

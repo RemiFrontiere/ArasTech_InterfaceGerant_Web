@@ -8,6 +8,8 @@
     <groupe-component *ngFor="let groupe of allGroup" [groupe]="groupe" (openModal)="openModifModal($event)"></groupe-component>
     <groupe-component [groupe]="null" (click)="openAddModal()"></groupe-component>
   </ul>
+
+
   <div *ngIf="oneModalIsOpen || oneModalNewGroupeIsOpen" class="modal fade show" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -18,13 +18,12 @@ export class BaliseComponent implements OnChanges{
     if(this.balise && this.balise.Medias){
       this.currentMedia = this.balise.Medias[0];
     }
-    console.log(this.currentMedia)
+    console.log(this.balise)
   }
 
   ngOnChanges():void{
     if(this.balise && this.balise.Medias && this.balise.Medias.length > 0){
       this.currentMedia = this.balise.Medias[0];
-      console.log(this.currentMedia.Link)
     }
   }
 

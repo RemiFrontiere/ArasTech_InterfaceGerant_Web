@@ -1,8 +1,9 @@
 <div class="myBalises">
   <div class="card-deck mb-3 text-center contentBalises">
       <balise-component *ngFor="let balise of globals.Balises" [balise]="balise" (openModal)="openModifModal($event)"></balise-component>
-      <balise-component [balise]="null" (click)="openAddModal()"></balise-component>
+      <!-- <balise-component [balise]="null" (click)="openAddModal()"></balise-component> -->
   </div>
+  <div (click)="openAddModal()" class="addModal"><i class="material-icons">add_circle</i></div>
 
 
   <div *ngIf="oneModalIsOpen || oneModalNewBaliseIsOpen" oneModalNewBaliseIsOpen class="modal fade show" tabindex="-1" role="dialog">
@@ -16,7 +17,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="input-group mb-3">
+          <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Propriétaire:</span>
             </div>
@@ -25,7 +26,7 @@
               <option>XX select</option>
               <option>dzdzd select</option>
             </select>
-          </div>
+          </div> -->
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Groupe:</span>
@@ -61,6 +62,24 @@
             </div>
             <textarea [(ngModel)]="oneModalIsOpen.Description" #BaliseDescription="ngModel" *ngIf="oneModalIsOpen" [value]="oneModalIsOpen.Description" class="form-control"></textarea>
             <textarea [(ngModel)]="modalBaliseDescription" #BaliseDescription="ngModel" *ngIf="oneModalNewBaliseIsOpen" class="form-control"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Médias:</span>
+            </div>
+            <div class="dropdown" *ngIf="oneModalIsOpen">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Les médias
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropDownClass" *ngFor="let media of oneModalIsOpen.Medias">
+                  <div class="idDropDown">{{media.Id}}</div>
+                  <div class="iDropDown">
+                    <i class="material-icons remove bg-danger">remove</i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button *ngIf="oneModalIsOpen && !modalVerifActived" type="button" (click)="modalVerifActived = true" class="btn btn-danger">Supprimer</button>

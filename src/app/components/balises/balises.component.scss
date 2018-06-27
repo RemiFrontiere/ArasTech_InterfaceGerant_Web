@@ -1,3 +1,23 @@
+.addModal{
+  position: fixed;
+  z-index: 100000;
+  height: 100px;
+  width: 100px;
+  background-color: #054a80;
+  border-radius: 50% 0 0 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  i{
+    font-size: 50px;
+    color: white;
+  }
+}
+
 // component css goes here
 .myBalises {
   display : flex;
@@ -11,5 +31,21 @@
     display: flex;
     justify-content: center;
     overflow: auto;
+  }
+}
+
+.dropdown{
+      width: 76%;
+}
+.dropDownClass{
+  display: flex;
+  align-items: center;
+
+  .idDropDown{
+    text-align: center;
+    width: 50%;
+  }.iDropDown{
+    width: 50%;
+    text-align: center;
   }
 }

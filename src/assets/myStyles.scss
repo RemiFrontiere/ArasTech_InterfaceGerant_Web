@@ -9,6 +9,17 @@
 }
 .liLabel03{
   width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    width: 50%;
+
+    i{
+      font-size: 14px;
+    }
+  }
 }
 
 .liLabel01Q{
@@ -69,5 +80,5 @@ button.btn.btn-primary {
 }
 
 @media (min-width: 1125px){
-  
+
 }

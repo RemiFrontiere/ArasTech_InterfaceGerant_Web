@@ -41,4 +41,8 @@ export class GroupeComponent implements OnChanges{
     document.body.classList.add('modalIsDisplay');
   }
 
+  public deleteModal():void{
+    this.globals.apiDeleteGroupe(this.groupe);
+  }
+
 }
