@@ -12,7 +12,7 @@ import { Question, Quizz, Reponse } from './question';
 @Injectable()
 export class Globals {
 
-  private _isLogged:boolean = false;
+  private _isLogged:boolean = true;
   private _currentScreen:string = "app";
   private _etablissementName:string = "";
   private _modalIsDisplay:boolean = false;

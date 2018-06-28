@@ -1,16 +1,15 @@
 <form *ngIf="question">
-  <div class="form-group">
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" [value]="question.label">
+  <div class="form-group questionForm">
+    <label for="inputQuestionLabel" class="col-sm-2 col-form-label labelQ">Question :</label>
+    <input type="email" class="form-control" id="inputQuestionLabel" placeholder="name@example.com" [value]="question.label">
   </div>
   <fieldset class="form-group">
   <div class="row">
-    <div class="col-sm-10">
-      <div class="form-check" *ngFor="let reponse of reponses">
+    <div class="col-sm-10 rowSecond">
+      <div class="form-check response" *ngFor="let reponse of reponses">
         <input *ngIf="reponse.IsRight" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
         <input *ngIf="!reponse.IsRight" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-        <label class="form-check-label" for="gridRadios1">
-          {{reponse.label}}
-        </label>
+        <input type="email" class="form-control" for="gridRadios1" [value]="reponse.label">
       </div>
     </div>
   </div>

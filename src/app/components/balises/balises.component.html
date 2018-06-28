@@ -1,4 +1,7 @@
-<div class="myBalises">
+<div class="load" *ngIf="!globals.Balises || globals.Balises.length == 0">
+  <img class="loadGif" src="../../../assets/load.gif" alt="">
+</div>
+<div class="myBalises" *ngIf="globals.Balises && globals.Balises.length > 0">
   <div class="card-deck mb-3 text-center contentBalises">
       <balise-component *ngFor="let balise of globals.Balises" [balise]="balise" (openModal)="openModifModal($event)"></balise-component>
       <!-- <balise-component [balise]="null" (click)="openAddModal()"></balise-component> -->
@@ -89,6 +92,7 @@
             <button *ngIf="oneModalNewBaliseIsOpen"  (click)="createBalise()" type="submit" class="btn btn-primary">Créer</button>
             <button type="button" *ngIf="!modalVerifActived" class="btn btn-secondary" (click)="removeModal()">Annuler</button>
           </div>
+        </div>
       </div>
     </div>
   </div>

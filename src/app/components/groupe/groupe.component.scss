@@ -1,4 +1,19 @@
 // component css goes here
+.buttonC{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  // button{
+  //   background-color: #054a80;
+  //   border: 1px solid #054a80;
+  // }
+  // button:hover{
+  //   background-color: white;
+  //   border: 1px solid white;
+  // }
+}
 .full{
   width: 100%;
   display: flex;
@@ -13,10 +28,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0;
+  margin: 3px;
 
   i{
     font-size: 2vw;
 }
+}
+
+.mod{
+  color: #054a80;
+}
+.mod:hover{
+  color: white;
+  background-color: #054a80;
+}
+
+.del:hover{
+
 }
 
 button{

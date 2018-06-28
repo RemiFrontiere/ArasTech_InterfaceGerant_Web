@@ -21,7 +21,21 @@
     }
   }
 }
+.loadGif{
+  height: 50%;
+}
+.load{
+  height: 85vh;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 
+  img{
+    height: 50%;
+  }
+
+}
 .liLabel01Q{
   width: 33%;
   left: 0;

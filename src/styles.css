@@ -1,11 +1,15 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./assets/myStyles.scss";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
 
 body{
   /* min-height: 75rem; */
   padding-top: 4.5rem;
   overflow-y: auto;
   overflow-x: hidden;
+  font-family: 'Ubuntu';
 }
 
 .modalIsDisplay{

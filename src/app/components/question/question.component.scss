@@ -1,4 +1,30 @@
 // component css goes here
+.labelQ{
+      font-weight: 700;
+}
+.questionForm{
+    display: flex;
+}
+.row{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  .rowSecond{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-check{
+      margin: 15px;
+    }
+  }
+}
+.response{
+  display: flex;
+/* justify-content: center; */
+align-items: center;
+}
 .full{
   width: 100%;
   display: flex;

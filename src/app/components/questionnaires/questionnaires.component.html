@@ -1,16 +1,28 @@
-<div class="myGroupes">
+<div class="load" *ngIf="!globals.Quizzs || globals.Quizzs.length == 0">
+  <img class="loadGif" src="../../../assets/load.gif" alt="">
+</div>
+<div class="myGroupes" *ngIf="globals.Quizzs && globals.Quizzs.length > 0">
   <h1>Mes Quizzs</h1>
   <div class="card-deck mb-3 text-center contentBalises" *ngFor="let quizz of globals.Quizzs">
     <div class="quizz" [ngStyle]="{'border-color': quizz.Color}">
-      <h2>Quizz {{quizz.title}}</h2>
+      <h2>{{quizz.title}}</h2>
       <div class="x">
         <p>Nombre de bonne réponses : {{quizz.numberOfRequestedGoodAnswers}}</p>
-        <p>Difficulté : {{quizz.Difficulty}}</p>
         <p>Durée : {{quizz.Duration}} minutes</p>
+        <div class="Difficulty">
+          <p>Difficulté : </p>
+          <div class="color" [ngStyle]="{'background-color': quizz.Color}"></div>
+        </div>
       </div>
-      <div class="color" [ngStyle]="{'background-color': quizz.Color}"></div>
       <question-component *ngFor="let question of getQuestionsFor(quizz)" [question]="question"></question-component>
+      <div class="buttonCont">
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Ajouter une question</button>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Mettre à jour</button>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Supprimer</button>
+      </div>
     </div>
-
+  </div>
+  <div class="buttonContBotom">
+    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Ajouter un questionnaire</button>
   </div>
 </div>

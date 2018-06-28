@@ -1,4 +1,7 @@
-<div class="myGroupes">
+<div class="load" *ngIf="allGroup && allGroup.length == 0">
+  <img class="loadGif" src="../../../assets/load.gif" alt="">
+</div>
+<div class="myGroupes" *ngIf="allGroup && allGroup.length > 0">
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center menu Bg-blue">
       <label class="liLabel01">Nom du Groupe</label>
